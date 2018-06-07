@@ -1,0 +1,18 @@
+{
+  "COMMON": {
+    "PLEASE_WAIT": "Veuillez patienter..."
+  },
+  "PAGES": {
+    "LOGIN": {
+      "TITLE": "Login"
+    },
+    "HOME": {
+      "TITLE": "Acceuil"
+    },
+    "CHOOSE_THEMATICS": {
+      "TITLE": "Choisissez vos thématiques"
+    }
+  }
+
+
+}
