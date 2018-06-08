@@ -4,27 +4,27 @@ import { Loading, LoadingController } from 'ionic-angular';
 
 @Injectable()
 export class LoaderService {
-  private currentWaiter: Loading;
+  private currentSpinner: Loading;
 
   constructor(
     public loadingCtrl: LoadingController,
     public translateSvc: TranslateService,
   ) {}
 
-  public showWaiter(duration?: number) {
-    this.createWaiter(duration);
-    return this.currentWaiter.present();
+  public showSpinner(duration?: number) {
+    this.createSpinner(duration);
+    return this.currentSpinner.present();
   }
 
-  public hideWaiter() {
-    if (this.currentWaiter) {
-      this.currentWaiter.dismiss();
+  public hideSpinner() {
+    if (this.currentSpinner) {
+      this.currentSpinner.dismiss();
     }
   }
 
-  private createWaiter(duration?: number) {
-    this.currentWaiter = this.loadingCtrl.create({
-      content: this.translateSvc.instant('COMMUN.VEUILLEZ_PATIENTER'),
+  private createSpinner(duration?: number) {
+    this.currentSpinner = this.loadingCtrl.create({
+      content: this.translateSvc.instant('COMMON.PLEASE_WAIT'),
       dismissOnPageChange: true,
       duration,
     });

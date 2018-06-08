@@ -1,0 +1,38 @@
+{
+  "user-1": {
+    "client": {
+      "corporateName": "Timwi",
+      "address": "10 rue du test ",
+      "domain": "Balagan Management",
+      "job": "Balagan entertainer",
+      "coreBusiness": "Software Architecture",
+      "sideBusiness": "Software Development",
+      "nEmployee": 9999,
+      "volumes": "Maximum"
+    },
+    "contact": {
+      "name": "Toto",
+      "job": "Money maker",
+      "email": "toto@test.com",
+      "phoneNumber": "+336 44 46 65 82"
+    }
+  },
+  "user-2": {
+    "client": {
+      "corporateName": "INeedMoney",
+      "address": "10 rue du test ",
+      "domain": "Money",
+      "job": "Money artificier",
+      "coreBusiness": "Money crafting",
+      "sideBusiness": "Fake money crafting",
+      "nEmployee": 1,
+      "volumes": "Minimum"
+    },
+    "contact": {
+      "name": "Patibulaire",
+      "job": "Money maker",
+      "email": "patibulaire@money-maker.com",
+      "phoneNumber": "+336 00 00 00 00"
+    }
+  }
+}

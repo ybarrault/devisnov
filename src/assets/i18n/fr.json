@@ -1,18 +1,25 @@
 {
   "COMMON": {
-    "PLEASE_WAIT": "Veuillez patienter..."
+    "PLEASE_WAIT": "Veuillez patienter...",
+    "OK": "OK"
   },
   "PAGES": {
     "LOGIN": {
-      "TITLE": "Login"
+      "TITLE": "Login",
+      "USERNAME": "username",
+      "PASSWORD": "password"
     },
     "HOME": {
-      "TITLE": "Acceuil"
+      "TITLE": "Accueil"
     },
     "CHOOSE_THEMATICS": {
       "TITLE": "Choisissez vos thématiques"
     }
+  },
+  "ERROR": {
+    "LOGIN": {
+      "TITLE": "Echec d'authentification",
+      "MESSAGE": "Veuillez vérifier votre saisie ou recommencer ultérieurement."
+    }
   }
-
-
 }

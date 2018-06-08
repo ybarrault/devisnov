@@ -1,11 +1,11 @@
-import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {ILogin} from '../models/ILogin';
+import {ILogin, ILoginPayload, ILoginResponse} from '../models/ILogin';
 import * as CONFIG from '../assets/json/config.json'
 import * as PARAMS from '../assets/json/params.json'
-import {catchError, tap} from 'rxjs/operators';
-import {of} from 'rxjs/observable/of';
+import { Storage } from '@ionic/storage';
+
+import {tap} from 'rxjs/operators';
 const {SERVER, PORT, PROTOCOL} = CONFIG as any;
 const {urls:URLS} = PARAMS as any;
 const BASE_URL = `${PROTOCOL}://${SERVER}:${PORT}`;
@@ -13,20 +13,50 @@ const BASE_URL = `${PROTOCOL}://${SERVER}:${PORT}`;
 @Injectable()
 export class AuthenticationService {
   private token: string = undefined;
+  private login: ILogin = undefined;
   private httpOptions: {headers: HttpHeaders} = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   constructor(
-    private storageSvc: Storage,
     private http: HttpClient,
+    private storageSvc: Storage,
   ){}
 
-  public authenticate(loginInfo: ILogin) {
-    const {login: loginUrl} = URLS;
-    return this.http.post<ILogin>(loginUrl, loginInfo, this.httpOptions).pipe(
-      tap( () => {console.log('login success', loginInfo);}),
-      catchError(err => {console.error('login failed', err); return of(null);})
+  public getToken(): string {
+    return this.token;
+  }
+
+  public setToken(token: string): void {
+    this.token = token;
+    this.storageSvc.set('token', token).then( token => {
+      console.log('>>> ionicStorage setToken', token);
+    });
+  }
+
+  public getLogin(): ILogin {
+    debugger;
+    return this.login;
+  }
+
+  public setLogin(login: ILogin): void{
+    this.login = login;
+    this.storageSvc.set('login', login).then( login => {
+      console.log('>>> ionicStorage setLogin', login);
+    });
+  }
+
+  public isTokenValid() {
+    return !!this.token && this.token === 'fake-jwt-token';
+  }
+
+  public authenticate(loginPayload: ILoginPayload) {
+    let {login: loginUrl} = URLS;
+    loginUrl = `${BASE_URL}${loginUrl}`;
+    return this.http.post<ILoginResponse>(loginUrl, loginPayload, this.httpOptions).pipe(
+      tap( () => {
+        console.log('>>> LOGIN SUCCESS', loginPayload);
+      })
     )
   }
 }
