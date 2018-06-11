@@ -1,6 +1,7 @@
 {
   "urls": {
     "login": "/api/login",
-    "profile": "/api/profile/:userId"
+    "profile": "/api/profile/:userId",
+    "domains": "/api/domains"
   }
 }

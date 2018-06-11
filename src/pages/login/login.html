@@ -10,7 +10,7 @@
   <ion-row>
     <ion-col>
       <form [formGroup]="loginForm" (submit)="onSubmit()">
-        <div class="input-wrapper">
+        <div class="form-field">
           <label for="username">{{'PAGES.LOGIN.USERNAME' | translate}}</label>
           <input
             id="username"
@@ -19,7 +19,7 @@
             autocomplete="on"
             [(ngModel)]="username">
         </div>
-        <div class="input-wrapper">
+        <div class="form-field">
           <label for="password">{{'PAGES.LOGIN.PASSWORD' | translate}}</label>
           <input
             id="password"

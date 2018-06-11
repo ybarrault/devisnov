@@ -30,4 +30,15 @@ export class ContextService {
       })
     )
   }
+
+  public getDomains() {
+    let {domains: domainsUrl} = URLS;
+    domainsUrl = `${BASE_URL}${domainsUrl}`;
+    console.log('>>> getDomains', domainsUrl);
+    return this.http.get<{value: string, label: string}[]>(domainsUrl, this.httpOptions).pipe(
+      tap( domains => {
+        console.log('>>> getDomains SUCCESS', domains);
+      })
+    )
+  }
 }

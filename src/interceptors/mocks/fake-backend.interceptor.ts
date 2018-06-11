@@ -3,6 +3,7 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable } from 'rxjs/Observable';
 import * as USERS from './json/users.json';
 import * as PROFILES from './json/profiles.json';
+import * as DOMAINS from './json/domains.json';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/delay';
@@ -11,6 +12,7 @@ import 'rxjs/add/operator/materialize';
 import 'rxjs/add/operator/dematerialize';
 const USERS_DATA = USERS as any;
 const PROFILES_DATA = PROFILES as any;
+const DOMAINS_DATA = DOMAINS as any;
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -62,6 +64,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           }
         } else {
           return Observable.throw('Unauthorised');
+        }
+      }
+
+
+      if (request.url.includes('/api/domains') && request.method === 'GET') {
+        const body = DOMAINS_DATA;
+        if (!!body) {
+          return Observable.of(new HttpResponse({ status: 200, body }));
+        } else {
+          return Observable.throw('404 not found');
         }
       }
 

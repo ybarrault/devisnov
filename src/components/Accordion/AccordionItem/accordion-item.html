@@ -1,0 +1,8 @@
+<div class="accordion-item" [ngClass]="isOpened ? 'opened' : ''">
+  <div class="header" #header (click)="toggle()">accordion item header</div>
+  <div class="content" [ngStyle]="style">
+    <div class="inner-wrapper" #content>
+      <ng-template accordion-item-host></ng-template>
+    </div>
+  </div>
+</div>

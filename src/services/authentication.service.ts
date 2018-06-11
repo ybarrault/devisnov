@@ -35,7 +35,6 @@ export class AuthenticationService {
   }
 
   public getLogin(): ILogin {
-    debugger;
     return this.login;
   }
 
