@@ -1,3 +1,59 @@
-page-home {
+page-choose-thematics {
+  $width: 300px;
+  $height: 50px;
+  $swiper_height: 310px;
+  section {
+    position: relative;
+    padding: map-get($gutters, 'sm') 0;
+    display: flex;
+    flex-flow: row;
+    overflow: hidden;
 
+    .section-title {
+      position: relative;
+      height: $width;
+      width: $height;
+
+      h2 {
+        display: block;
+        position: absolute;
+        margin: 0;
+        transform: rotate(-90deg);
+        width: $width;
+        height: $height;
+        left: -$width /2 + $height/2;
+        top: $swiper_height/2 - $height/2;
+        text-align: center;
+        background-color: map-get($colors, 'CER_BLACK');
+        color: white
+      }
+    }
+
+
+    swiper {
+      display: block;
+      width: calc(100% - 50px);
+      .swiper-container {
+        height: $swiper_height;
+      }
+    }
+
+    .tile {
+      position: relative;
+      &.active {
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          z-index: 1;
+          background-color: transparentize(map-get($colors, 'CER_BLUE'), .3);
+        }
+        border: 1px solid map-get($colors, 'CER_BLUE');
+      }
+    }
+  }
 }

@@ -1,83 +1,89 @@
 <div class="sales-lead">
-  <form *ngIf="!this.client; else client" (submit)="searchSalesLead()">
+  <form (submit)="searchSalesLead()">
     <div class="form-field">
-      <label for="sales-lead-search">{{'SALES_LEAD.SEARCH.LABEL' | translate}}</label>
-      <input id="sales-lead-search" [(ngModel)]="search"/>
+      <label for="sales-lead-search">{{'COMPONENTS.SALES_LEAD.SEARCH' | translate}}</label>
+      <input id="sales-lead-search" name="sales-lead-search" [(ngModel)]="search"/>
     </div>
     <button type="submit">{{'COMMON.SEARCH' | translate}}</button>
   </form>
-  <ng-template #client>
-    <div class="client-information">
-      <button class="toggle-mode" [ngClass]="readOnly ? 'read-mode' : 'edit-mode'" type="button" (click)="toggleMode()">
-        <span *ngIf="readOnly; else editLabel">DISPLAY</span>
-        <ng-template #editLabel>
-          <span>EDIT</span>
-        </ng-template>
-      </button>
-      <form  *ngIf="!readOnly; else readOnlyTemplate" (submit)="searchSalesLead()">
-        <div class="form-field">
-          <label for="corporate-name">{{'SALES_LEAD.CORPORATE_NAME' | translate}}</label>
-          <input id="corporate-name" name="corporate-name" [(ngModel)]="data.client.corporateName"/>
-        </div>
-        <div class="form-field">
-          <label for="address">{{'SALES_LEAD.ADDRESS' | translate}}</label>
-          <input id="address" name="address" [(ngModel)]="data.client.address"/>
-        </div>
-        <div class="form-field">
-          <label for="job">{{'SALES_LEAD.JOB' | translate}}</label>
-          <input id="job" name="job" [(ngModel)]="data.client.job"/>
-        </div>
-        <div class="form-field">
-          <label for="core-business">{{'SALES_LEAD.CORE_BUSINESS' | translate}}</label>
-          <input id="core-business" name="core-business" [(ngModel)]="data.client.coreBusiness"/>
-        </div>
-        <div class="form-field">
-          <label for="side-business">{{'SALES_LEAD.SIDE_BUSINESS' | translate}}</label>
-          <input id="side-business" name="side-business" [(ngModel)]="data.client.sideBusiness"/>
-        </div>
-        <div class="form-field">
-          <label for="volumes">{{'SALES_LEAD.VOLUMES' | translate}}</label>
-          <input id="volumes" name="volumes" [(ngModel)]="data.client.volumes"/>
-        </div>
-        <div class="form-field">
-          <label for="domain">{{'SALES_LEAD.DOMAIN' | translate}}</label>
-          <select id="domain" name="domain" [(ngModel)]="data.client.domain">
-            <option *ngFor="let option of domainOptions" [value]="option.value">{{option.value | translate}}</option>
-          </select>
-        </div>
-        <button type="submit" (click)="saveClient()">{{'COMMON.SAVE' | translate}}</button>
-      </form>
-
-      <ng-template #readOnlyTemplate>
-        <div class="form-field">
-          <span class="label">{{'SALES_LEAD.CORPORATE_NAME' | translate}}</span>
-          <span class="value">{{data.client.corporateName}}</span>
-        </div>
-        <div class="form-field">
-          <span class="label">{{'SALES_LEAD.ADDRESS' | translate}}</span>
-          <span class="value">{{data.client.address}}</span>
-        </div>
-        <div class="form-field">
-          <span class="label">{{'SALES_LEAD.JOB' | translate}}</span>
-          <span class="value">{{data.client.job}}</span>
-        </div>
-        <div class="form-field">
-          <span class="label">{{'SALES_LEAD.CORE_BUSINESS' | translate}}</span>
-          <span class="value">{{data.client.coreBusiness}}</span>
-        </div>
-        <div class="form-field">
-          <span class="label">{{'SALES_LEAD.SIDE_BUSINESS' | translate}}</span>
-          <span class="value">{{data.client.sideBusiness}}</span>
-        </div>
-        <div class="form-field">
-          <span class="label">{{'SALES_LEAD.VOLUMES' | translate}}</span>
-          <span class="value">{{data.client.volumes}}</span>
-        </div>
-        <div class="form-field">
-          <span class="label">{{'SALES_LEAD.DOMAIN' | translate}}</span>
-          <span class="value">{{data.client.domain}}</span>
-        </div>
+  <div class="client-information">
+    <button class="toggle-mode" [ngClass]="readOnly ? 'read-mode' : 'edit-mode'" type="button" (click)="toggleMode()">
+      <span *ngIf="readOnly; else editLabel">DISPLAY</span>
+      <ng-template #editLabel>
+        <span>EDIT</span>
       </ng-template>
-    </div>
-  </ng-template>
+    </button>
+    <form  *ngIf="!readOnly; else readOnlyTemplate" (submit)="searchSalesLead()">
+      <div class="form-field">
+        <label for="corporate-name">{{'COMPONENTS.SALES_LEAD.CORPORATE_NAME' | translate}}</label>
+        <input id="corporate-name" name="corporate-name" [(ngModel)]="client.corporateName"/>
+      </div>
+      <div class="form-field">
+        <label for="address">{{'COMPONENTS.SALES_LEAD.ADDRESS' | translate}}</label>
+        <input id="address" name="address" [(ngModel)]="client.address"/>
+      </div>
+      <div class="form-field">
+        <label for="domain">{{'COMPONENTS.SALES_LEAD.DOMAIN' | translate}}</label>
+        <select id="domain" name="domain" [(ngModel)]="client.domain">
+          <option *ngFor="let option of domainOptions" [value]="option.value">{{option.value | translate}}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="job">{{'COMPONENTS.SALES_LEAD.JOB' | translate}}</label>
+        <input id="job" name="job" [(ngModel)]="client.job"/>
+      </div>
+      <div class="form-field">
+        <label for="core-business">{{'COMPONENTS.SALES_LEAD.CORE_BUSINESS' | translate}}</label>
+        <input id="core-business" name="core-business" [(ngModel)]="client.coreBusiness"/>
+      </div>
+      <div class="form-field">
+        <label for="side-business">{{'COMPONENTS.SALES_LEAD.SIDE_BUSINESS' | translate}}</label>
+        <input id="side-business" name="side-business" [(ngModel)]="client.sideBusiness"/>
+      </div>
+      <div class="form-field">
+        <label for="n-employee">{{'COMPONENTS.SALES_LEAD.N_EMPLOYEE' | translate}}</label>
+        <input id="n-employee" name="n-employee" [(ngModel)]="client.nEmployee"/>
+      </div>
+      <div class="form-field">
+        <label for="volumes">{{'COMPONENTS.SALES_LEAD.VOLUMES' | translate}}</label>
+        <input id="volumes" name="volumes" [(ngModel)]="client.volumes"/>
+      </div>
+      <button type="submit" (click)="saveClient()">{{'COMMON.SAVE' | translate}}</button>
+    </form>
+
+    <ng-template #readOnlyTemplate>
+      <div class="form-field">
+        <span class="label">{{'COMPONENTS.SALES_LEAD.CORPORATE_NAME' | translate}}</span>
+        <span class="value">{{client.corporateName}}</span>
+      </div>
+      <div class="form-field">
+        <span class="label">{{'COMPONENTS.SALES_LEAD.ADDRESS' | translate}}</span>
+        <span class="value">{{client.address}}</span>
+      </div>
+      <div class="form-field">
+        <span class="label">{{'COMPONENTS.SALES_LEAD.DOMAIN' | translate}}</span>
+        <span class="value">{{client.domain}}</span>
+      </div>
+      <div class="form-field">
+        <span class="label">{{'COMPONENTS.SALES_LEAD.JOB' | translate}}</span>
+        <span class="value">{{client.job}}</span>
+      </div>
+      <div class="form-field">
+        <span class="label">{{'COMPONENTS.SALES_LEAD.CORE_BUSINESS' | translate}}</span>
+        <span class="value">{{client.coreBusiness}}</span>
+      </div>
+      <div class="form-field">
+        <span class="label">{{'COMPONENTS.SALES_LEAD.SIDE_BUSINESS' | translate}}</span>
+        <span class="value">{{client.sideBusiness}}</span>
+      </div>
+      <div class="form-field">
+        <span class="label">{{'COMPONENTS.SALES_LEAD.N_EMPLOYEE' | translate}}</span>
+        <span class="value">{{client.nEmployee}}</span>
+      </div>
+      <div class="form-field">
+        <span class="label">{{'COMPONENTS.SALES_LEAD.VOLUMES' | translate}}</span>
+        <span class="value">{{client.volumes}}</span>
+      </div>
+    </ng-template>
+  </div>
 </div>

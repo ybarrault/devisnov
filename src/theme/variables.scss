@@ -34,11 +34,15 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  primary:           #488aff,
+  secondary:         #32db64,
+  danger:            #f53d3d,
+  light:             #f4f4f4,
+  dark:              #222,
+  CER_ORANGE_LIGHT:  #f8b334,
+  CER_ORANGE_DARK:   #e8501f,
+  CER_BLUE:          #00a096,
+  CER_BLACK:         #4b4b4d,
 );
 
 
@@ -53,7 +57,12 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$gutters: (
+  xs:    8px,
+  sm:    16px,
+  md:    24px,
+  lg:    48px,
+);
 
 
 // App Windows Variables
@@ -86,3 +95,5 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+@import "normalize";

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{'PAGES.CHOOSE_SERVICE_PROVISIONS.TITLE' | translate}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <section *ngFor="let catalogue of serviceProvisionsByCatalogue">
+    <div class="section-title">
+      <h2>{{catalogue.label}}</h2>
+    </div>
+    <accordion>
+      <accordion-item *ngFor="let serviceProvision of catalogue.serviceProvisions">
+        <div accordion-item-header><strong>{{serviceProvision.label}}</strong></div>
+        <div accordion-item-content>
+          <p>
+            id: {{serviceProvision.id}}<br/>
+            code: {{serviceProvision.id}}<br/>
+            label: {{serviceProvision.id}}<br/>
+            serviceProvisions: {{serviceProvisions.length}}
+          </p>
+        </div>
+      </accordion-item>
+    </accordion>
+  </section>
+
+  <button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}</button>
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>Uninov - Copyright@2018 all rights reserved</ion-col>
+  </ion-row>
+</ion-footer>
+

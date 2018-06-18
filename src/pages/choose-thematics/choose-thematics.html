@@ -1,14 +1,36 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      {{'PAGES.CHOOSE_THEMATICS.TITLE' | translate}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <section *ngFor="let catalogue of catalogues">
+    <div class="section-title">
+      <h2>{{catalogue.label}}</h2>
+    </div>
+    <swiper>
+      <swiper-slide
+        *ngFor="let thematic of catalogue.thematics">
+        <tile
+          [id]="thematic.id"
+          [title]="thematic.label"
+          [description]="thematic.description"
+          [image]="thematic.image"
+          (select)="onSelect({event: $event, catalogueId: catalogue.id})"
+        ></tile>
+      </swiper-slide>
+    </swiper>
+  </section>
+  <button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}</button>
+
 </ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col>Uninov - Copyright@2018 all rights reserved</ion-col>
+  </ion-row>
+</ion-footer>
+

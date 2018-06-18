@@ -1,8 +1,12 @@
-<div class="accordion-item" [ngClass]="isOpened ? 'opened' : ''">
-  <div class="header" #header (click)="toggle()">accordion item header</div>
-  <div class="content" [ngStyle]="style">
-    <div class="inner-wrapper" #content>
-      <ng-template accordion-item-host></ng-template>
+<li class="accordion-item" [ngClass]="isOpened ? 'opened' : ''">
+  <div class="header" #header (click)="toggleContent()">
+    <ng-content select="[accordion-item-header]">
+
+    </ng-content>
+  </div>
+  <div class="content">
+    <div class="inner-wrapper" #content *ngIf="isOpened">
+      <ng-content select="[accordion-item-content]"></ng-content>
     </div>
   </div>
-</div>
+</li>

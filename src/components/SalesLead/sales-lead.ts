@@ -1,5 +1,4 @@
-import {AfterViewChecked, Component, Input, OnInit} from '@angular/core';
-import {IAccordionItemContentComponent} from '../Accordion/AccordionItem/models/accordion-item-content';
+import {Component, Input, OnInit} from '@angular/core';
 import {IClient} from '../../models/IProfile';
 import {ContextService} from '../../services/context.service';
 
@@ -7,27 +6,22 @@ import {ContextService} from '../../services/context.service';
   selector: 'sales-lead',
   templateUrl: 'sales-lead.html'
 })
-export class SalesLead implements IAccordionItemContentComponent, OnInit, AfterViewChecked {
-  @Input() data: {client: IClient};
-  @Input() resizeContainer: () => void;
+export class SalesLead implements OnInit {
+  @Input() client: IClient;
+  public domainOptions: {value: string, label: string}[] = [];
   private readOnly: boolean = true;
   private search: string = '';
-  private domainOptions: {value: string, label: string}[] = [];
 
   constructor(private contextSvc: ContextService) {
   }
 
   public ngOnInit(){
-    console.info('>>> BusinessAdherent init');
+    // console.info('>>> SalesLead init');
     this.contextSvc.getDomains().subscribe(
       domains => {
         this.domainOptions = domains;
       }
     );
-  }
-
-  public ngAfterViewChecked() {
-    this.resizeContainer();
   }
 
   public toggleMode() {
@@ -39,6 +33,7 @@ export class SalesLead implements IAccordionItemContentComponent, OnInit, AfterV
   }
 
   public saveClient() {
-    console.log('>>> saveClient', this.data.client);
+    console.log('>>> saveClient', this.client);
+    this.readOnly = true;
   }
 }

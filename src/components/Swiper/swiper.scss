@@ -1,0 +1,14 @@
+swiper {
+
+  .swiper-content {
+    //transition: transform 100ms;
+    display: flex;
+  }
+
+  swiper-slide {
+    margin-right: map-get($gutters, 'sm');
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}

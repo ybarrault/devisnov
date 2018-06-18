@@ -1,15 +1,18 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IAccordionItemContentComponent} from '../Accordion/AccordionItem/models/accordion-item-content';
+import {IClient} from '../../models/IProfile';
 
 @Component({
   selector: 'business-adherent',
   templateUrl: 'business-adherent.html'
 })
-export class BusinessAdherent implements IAccordionItemContentComponent, OnInit {
-  @Input() data: any;
-  @Input() resizeContainer: () => void;
-
+export class BusinessAdherent implements OnInit {
+  private searchNumber: string;
+  private corporateName: string;
   public ngOnInit(){
-    console.info('>>> BusinessAdherent init');
+    // console.info('>>> BusinessAdherent init');
+  }
+
+  public saveAdherent() {
+    console.log('>>> saveAdherent');
   }
 }

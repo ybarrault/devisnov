@@ -2,6 +2,7 @@
   "urls": {
     "login": "/api/login",
     "profile": "/api/profile/:userId",
-    "domains": "/api/domains"
+    "domains": "/api/domains",
+    "catalogues": "/api/catalogues"
   }
 }

@@ -18,6 +18,8 @@ import {HomePage} from '../pages/home/home';
 import {LoginPageModule} from '../pages/login/login.module';
 import {HomePageModule} from '../pages/home/home.module';
 import {ContextService} from '../services/context.service';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {AccordionModule} from '../components/Accordion/accordion.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -43,6 +45,8 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

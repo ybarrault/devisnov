@@ -1,0 +1,25 @@
+<div class="swiper-container" #swiperContainer>
+  <div
+    #swiperContent
+    class="swiper-content"
+    [ngStyle]="style"
+
+    (mousedown)="onMouseDown($event)"
+    (mouseup)="onEnd($event)"
+    (mousemove)="onMouseMove($event)"
+    (mouseleave)="onCancel($event)"
+
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onEnd($event)"
+    (touchmove)="onTouchMove($event)"
+    (touchcancel)="onCancel($event)"
+  >
+    <!-- Slides -->
+    <ng-content>
+
+    </ng-content>
+  </div>
+
+  <div class="swiper-button-prev" #prev></div>
+  <div class="swiper-button-next" #next></div>
+</div>

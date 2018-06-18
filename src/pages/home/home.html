@@ -7,9 +7,29 @@
 </ion-header>
 
 <ion-content padding>
-  <accordion [items]="items"></accordion>
-</ion-content>
+  <h2>{{'PAGES.HOME.HEADER' | translate}}</h2>
+  <accordion uid="home" *ngIf="!!profile">
+    <accordion-item>
+      <div accordion-item-header>{{'PAGES.HOME.BUSINESS_ADHERENT' | translate}}</div>
+      <div accordion-item-content>
+        <business-adherent
+          [title]="'Titre adhérent'"
+          [description]="'Description adhérent'"
+        ></business-adherent>
+      </div>
 
+    </accordion-item>
+    <accordion-item>
+      <div accordion-item-header>{{'PAGES.HOME.SALES_LEAD' | translate}}</div>
+      <div accordion-item-content>
+        <sales-lead
+          [client]="profile.client"
+        ></sales-lead>
+      </div>
+    </accordion-item>
+  </accordion>
+  <button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}</button>
+</ion-content>
 
 <ion-footer>
   <ion-row>

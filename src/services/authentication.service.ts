@@ -30,7 +30,7 @@ export class AuthenticationService {
   public setToken(token: string): void {
     this.token = token;
     this.storageSvc.set('token', token).then( token => {
-      console.log('>>> ionicStorage setToken', token);
+      // console.log('>>> ionicStorage setToken', token);
     });
   }
 
@@ -41,7 +41,7 @@ export class AuthenticationService {
   public setLogin(login: ILogin): void{
     this.login = login;
     this.storageSvc.set('login', login).then( login => {
-      console.log('>>> ionicStorage setLogin', login);
+      // console.log('>>> ionicStorage setLogin', login);
     });
   }
 
@@ -54,7 +54,7 @@ export class AuthenticationService {
     loginUrl = `${BASE_URL}${loginUrl}`;
     return this.http.post<ILoginResponse>(loginUrl, loginPayload, this.httpOptions).pipe(
       tap( () => {
-        console.log('>>> LOGIN SUCCESS', loginPayload);
+        // console.log('>>> LOGIN SUCCESS', loginPayload);
       })
     )
   }

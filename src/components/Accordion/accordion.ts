@@ -1,5 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {AlertController, IonicPage, NavController} from 'ionic-angular';
+import {
+  AfterContentInit,
+  Component,
+  ContentChildren,
+  EventEmitter,
+  Input,
+  Output,
+  QueryList,
+} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {AccordionItem} from './AccordionItem/accordion-item';
 
@@ -7,17 +14,24 @@ import {AccordionItem} from './AccordionItem/accordion-item';
   selector: 'accordion',
   templateUrl: 'accordion.html'
 })
-export class Accordion implements OnInit {
-  @Input() items: AccordionItem[];
-
+export class Accordion implements AfterContentInit {
+  @ContentChildren(AccordionItem) accordionItems: QueryList<AccordionItem>;
+  @Input() private uid: string = 'uid';
   constructor(
-    public navCtrl: NavController,
-    private alertCtrl: AlertController,
     private translateSvc: TranslateService,
   ) {
   }
 
-  public ngOnInit() {
+  public ngAfterContentInit(){
 
+    if (this.accordionItems) {
+      this.accordionItems.forEach((el, index) => {
+        el.uid = `${this.uid}-${index}`;
+        el.isOpened = false;
+        el.toggle.subscribe(({type, uid}) => {
+          el.isOpened = type === 'open' && uid === el.uid;
+        });
+      });
+    }
   }
 }

@@ -1,5 +1,3 @@
 <ul class="accordion">
-  <li *ngFor="let item of items; let i=index">
-    <accordion-item [itemContent]="item"></accordion-item>
-  </li>
+  <ng-content></ng-content>
 </ul>

@@ -1,7 +1,11 @@
 {
   "COMMON": {
     "PLEASE_WAIT": "Veuillez patienter...",
-    "OK": "OK"
+    "OK": "OK",
+    "OR": "Ou",
+    "SEARCH": "Rechercher",
+    "SAVE": "Enregistrer",
+    "NEXT": "Suivant"
   },
   "PAGES": {
     "LOGIN": {
@@ -10,10 +14,30 @@
       "PASSWORD": "password"
     },
     "HOME": {
-      "TITLE": "Accueil"
+      "TITLE": "Accueil",
+      "HEADER": "Vous êtes:",
+      "SALES_LEAD": "Prospect ?",
+      "BUSINESS_ADHERENT": "Adhérent ?"
     },
     "CHOOSE_THEMATICS": {
       "TITLE": "Choisissez vos thématiques"
+    }
+  },
+  "COMPONENTS": {
+    "SALES_LEAD": {
+      "SEARCH": "Rechercher un prospect:",
+      "CORPORATE_NAME": "Nom/Raison sociale:",
+      "ADDRESS": "adresse:",
+      "JOB": "Métier:",
+      "DOMAIN": "Marché:",
+      "CORE_BUSINESS": "Activité principale:",
+      "SIDE_BUSINESS": "Activité secondaire:",
+      "N_EMPLOYEE": "Effectif salarié:",
+      "VOLUMES": "Information de volumétrie:"
+    },
+    "BUSINESS_ADHERENT": {
+      "CORPORATE_NAME": "Nom/Raison sociale:",
+      "SEARCH_BY_NUMBER": "Recherche par numéro"
     }
   },
   "ERROR": {

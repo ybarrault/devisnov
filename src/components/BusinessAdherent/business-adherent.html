@@ -1,4 +1,14 @@
 <div class="business-adherent">
-  <h2>{{data.title}}</h2>
-  <p>{{data.description}}</p>
+  <form  *ngIf="!readOnly; else readOnlyTemplate" (submit)="searchSalesLead()">
+    <div class="form-field">
+      <label for="search-by-number">{{'COMPONENTS.BUSINESS_ADHERENT.SEARCH_BY_NUMBER' | translate}}</label>
+      <input id="search-by-number" name="search-by-number" [(ngModel)]="searchNumber"/>
+    </div>
+    <div class="separator"><strong>{{'COMMON.OR' | translate}}</strong></div>
+    <div class="form-field">
+      <label for="corporate-name">{{'COMPONENTS.BUSINESS_ADHERENT.CORPORATE_NAME' | translate}}</label>
+      <input id="corporate-name" name="corporate-name" [(ngModel)]="corporateName"/>
+    </div>
+    <button type="submit" (click)="searchAdherent()">{{'COMMON.SAVE' | translate}}</button>
+  </form>
 </div>
