@@ -7,26 +7,15 @@
 </ion-header>
 
 <ion-content>
-  <section *ngFor="let catalogue of serviceProvisionsByCatalogue">
-    <div class="section-title">
-      <h2>{{catalogue.label}}</h2>
-    </div>
-    <accordion>
-      <accordion-item *ngFor="let serviceProvision of catalogue.serviceProvisions">
-        <div accordion-item-header><strong>{{serviceProvision.label}}</strong></div>
-        <div accordion-item-content>
-          <p>
-            id: {{serviceProvision.id}}<br/>
-            code: {{serviceProvision.id}}<br/>
-            label: {{serviceProvision.id}}<br/>
-            serviceProvisions: {{serviceProvisions.length}}
-          </p>
-        </div>
-      </accordion-item>
-    </accordion>
-  </section>
-
-  <button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}</button>
+  <ion-tabs [selectedIndex]="0" tabsPlacement="top">
+    <ion-tab
+      *ngFor="let catalogue of serviceProvisionsByCatalogue"
+      [tabTitle]="catalogue.label"
+      [root]="tab"
+      [rootParams]="catalogue"
+    >
+    </ion-tab>
+  </ion-tabs>
 </ion-content>
 
 <ion-footer>

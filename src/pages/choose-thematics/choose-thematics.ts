@@ -61,7 +61,6 @@ export class ChooseThematicsPage implements OnInit {
 
   next() {
     this.contextSvc.set(this.selectedCataloguesWithThematics);
-    console.log(this.contextSvc.get());
     this.navCtrl.push('ChooseServiceProvisionsPage', {selectedCataloguesWithThematics: this.selectedCataloguesWithThematics});
   }
 }

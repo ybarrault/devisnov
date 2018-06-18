@@ -17,6 +17,7 @@ export class ChooseServiceProvisionsPage implements OnInit {
     label: string,
     serviceProvisions: IServiceProvision[]
   }[] = [];
+  private tab : string = 'TabPage';
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -26,12 +27,11 @@ export class ChooseServiceProvisionsPage implements OnInit {
   }
 
   public ngOnInit() {
-    console.log('>>> chooseServiceProvisionPage', this.catalogues);
-    this.catalogues = this.navParams.get('selectedCataloguesWithThematics') || [];
+    this.catalogues = this.navParams.get('selectedCataloguesWithThematics');
     this.setServiceProvisionsByCatalogue();
   }
 
-  setServiceProvisionsByCatalogue() {
+  public setServiceProvisionsByCatalogue() {
     this.serviceProvisionsByCatalogue = this.catalogues.map(
       catalogue => {
         const res = {
@@ -59,7 +59,6 @@ export class ChooseServiceProvisionsPage implements OnInit {
       }
     )
   }
-
 
   next() {
     // this.contextSvc.selectedCataloguesWithThematics = this.selectedCataloguesWithThematics;

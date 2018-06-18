@@ -12,10 +12,7 @@
     <accordion-item>
       <div accordion-item-header>{{'PAGES.HOME.BUSINESS_ADHERENT' | translate}}</div>
       <div accordion-item-content>
-        <business-adherent
-          [title]="'Titre adhérent'"
-          [description]="'Description adhérent'"
-        ></business-adherent>
+        <business-adherent></business-adherent>
       </div>
 
     </accordion-item>
@@ -28,7 +25,7 @@
       </div>
     </accordion-item>
   </accordion>
-  <button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}</button>
+  <button ion-button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}</button>
 </ion-content>
 
 <ion-footer>

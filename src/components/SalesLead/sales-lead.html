@@ -4,7 +4,7 @@
       <label for="sales-lead-search">{{'COMPONENTS.SALES_LEAD.SEARCH' | translate}}</label>
       <input id="sales-lead-search" name="sales-lead-search" [(ngModel)]="search"/>
     </div>
-    <button type="submit">{{'COMMON.SEARCH' | translate}}</button>
+    <button ion-button type="submit">{{'COMMON.SEARCH' | translate}}</button>
   </form>
   <div class="client-information">
     <button class="toggle-mode" [ngClass]="readOnly ? 'read-mode' : 'edit-mode'" type="button" (click)="toggleMode()">
@@ -48,7 +48,7 @@
         <label for="volumes">{{'COMPONENTS.SALES_LEAD.VOLUMES' | translate}}</label>
         <input id="volumes" name="volumes" [(ngModel)]="client.volumes"/>
       </div>
-      <button type="submit" (click)="saveClient()">{{'COMMON.SAVE' | translate}}</button>
+      <button ion-button type="submit" (click)="saveClient()">{{'COMMON.SAVE' | translate}}</button>
     </form>
 
     <ng-template #readOnlyTemplate>

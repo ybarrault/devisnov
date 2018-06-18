@@ -19,7 +19,8 @@ import {LoginPageModule} from '../pages/login/login.module';
 import {HomePageModule} from '../pages/home/home.module';
 import {ContextService} from '../services/context.service';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {AccordionModule} from '../components/Accordion/accordion.module';
+import {Deeplinks} from '@ionic-native/deeplinks';
+import {TabPage} from '../components/Tab/tab';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -60,6 +61,7 @@ export function createTranslateLoader(http: HttpClient) {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthenticationService,
     ContextService,
+    Deeplinks,
     LoaderService,
     {
       provide: HTTP_INTERCEPTORS,

@@ -18,6 +18,10 @@ export class TaskPage implements OnInit {
 
   }
 
+  public ngOnInit() {
+
+  }
+
   next() {
     // this.contextSvc.selectedCataloguesWithThematics = this.selectedCataloguesWithThematics;
   }

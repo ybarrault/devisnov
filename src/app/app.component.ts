@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Nav, NavController, Platform} from 'ionic-angular';
+import {Nav, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
@@ -23,7 +23,6 @@ export class MyApp implements OnInit {
     private splashScreen: SplashScreen,
     private translateSvc: TranslateService,
     private authSvc: AuthenticationService,
-    private navCtrl: NavController,
     private storageSvc: Storage,
     private deeplinks: Deeplinks,
   ) {
@@ -53,17 +52,17 @@ export class MyApp implements OnInit {
           this.nav.setRoot('LoginPage');
         });
 
-        this.deeplinks.routeWithNavController(this.navCtrl, {
-          '/task/:taskId': TaskPage
-        }).subscribe((match) => {
-          // match.$route - the route we matched, which is the matched entry from the arguments to route()
-          // match.$args - the args passed in the link
-          // match.$link - the full link data
-          console.log('Successfully matched route', match);
-        }, (nomatch) => {
-          // nomatch.$link - the full link data
-          console.error('Got a deeplink that didn\'t match', nomatch);
-        });
+        // this.deeplinks.routeWithNavController(this.nav, {
+        //   '/task/:taskId': TaskPage
+        // }).subscribe((match) => {
+        //   // match.$route - the route we matched, which is the matched entry from the arguments to route()
+        //   // match.$args - the args passed in the link
+        //   // match.$link - the full link data
+        //   console.log('Successfully matched route', match);
+        // }, (nomatch) => {
+        //   // nomatch.$link - the full link data
+        //   console.error('Got a deeplink that didn\'t match', nomatch);
+        // });
     });
   }
 

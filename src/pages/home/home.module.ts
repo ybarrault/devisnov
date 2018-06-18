@@ -5,7 +5,6 @@ import { HomePage } from './home';
 import {AccordionModule} from '../../components/Accordion/accordion.module';
 import {BusinessAdherent} from '../../components/BusinessAdherent/business-adherent';
 import {SalesLead} from '../../components/SalesLead/sales-lead';
-import {AccordionItem} from '../../components/Accordion/AccordionItem/accordion-item';
 
 @NgModule({
   declarations: [HomePage, BusinessAdherent, SalesLead],

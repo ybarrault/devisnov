@@ -89,12 +89,12 @@ export class SwiperComponent implements AfterViewInit, OnDestroy {
 
   swipe() {
     // let translateLength = this.translate.endX - this.translate.startX;
-    console.log('>>> this.translate.endX - this.translate.startX', this.translate.endX - this.translate.startX);
+    // console.log('>>> this.translate.endX - this.translate.startX', this.translate.endX - this.translate.startX);
     let translateLength = this.previousTranslate + (this.translate.endX - this.translate.startX);
     translateLength = translateLength < - this.maxTranslate ? - this.maxTranslate : translateLength;
     translateLength = translateLength < 0 ?  translateLength : 0;
     this.previousTranslate = translateLength;
-    console.log('>>> newTranslate', translateLength);
+    // console.log('>>> newTranslate', translateLength);
     this.style = {
       transform: 'translateX(' + translateLength + 'px)'
     };

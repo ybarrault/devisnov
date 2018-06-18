@@ -21,6 +21,9 @@
     },
     "CHOOSE_THEMATICS": {
       "TITLE": "Choisissez vos thématiques"
+    },
+    "CHOOSE_SERVICE_PROVISIONS": {
+      "TITLE": "Choisissez vos prestations"
     }
   },
   "COMPONENTS": {
@@ -37,7 +40,7 @@
     },
     "BUSINESS_ADHERENT": {
       "CORPORATE_NAME": "Nom/Raison sociale:",
-      "SEARCH_BY_NUMBER": "Recherche par numéro"
+      "SEARCH_BY_NUMBER": "Rechercher par numéro:"
     }
   },
   "ERROR": {
