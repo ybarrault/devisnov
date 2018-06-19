@@ -33,17 +33,23 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-$colors: (
-  primary:           #488aff,
-  secondary:         #32db64,
-  danger:            #f53d3d,
-  light:             #f4f4f4,
-  dark:              #222,
+$customColors: (
   CER_ORANGE_LIGHT:  #f8b334,
   CER_ORANGE_DARK:   #e8501f,
   CER_BLUE:          #00a096,
   CER_BLACK:         #4b4b4d,
+  CER_WHITE:         #f4f4f4,
 );
+
+$colors: (
+  primary:           map-get($customColors, 'CER_ORANGE_LIGHT'),
+  secondary:         map-get($customColors, 'CER_BLUE'),
+  danger:            map-get($customColors, 'CER_ORANGE_DARK'),
+  light:             map-get($customColors, 'CER_WHITE'),
+  dark:              map-get($customColors, 'CER_BLACK'),
+);
+
+
 
 
 // App iOS Variables

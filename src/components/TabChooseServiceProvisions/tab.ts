@@ -2,7 +2,8 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import {IonicPage, NavController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IServiceProvisionByCatalogue} from '../../models/IServiceProvision';
 
 @IonicPage()
 @Component({
@@ -10,14 +11,16 @@ import {IonicPage, NavController} from 'ionic-angular';
   templateUrl: 'tab.html',
 })
 export class TabPage implements OnInit {
-  private catalogue: any;
+  private catalogue: IServiceProvisionByCatalogue;
   constructor(
     public navCtrl: NavController,
+    public navParams: NavParams,
   ) {
 
   }
 
   public ngOnInit(){
+    this.catalogue = this.navParams.data;
     console.log('>>> tab catalogue', this.catalogue);
   }
 }

@@ -5,6 +5,10 @@
     "OR": "Ou",
     "SEARCH": "Rechercher",
     "SAVE": "Enregistrer",
+    "EDIT": "Modifier",
+    "DELETE": "Supprimer",
+    "ADD": "+",
+    "RELATED_TASKS": "tache(s) associée(s)",
     "NEXT": "Suivant"
   },
   "PAGES": {
@@ -41,6 +45,9 @@
     "BUSINESS_ADHERENT": {
       "CORPORATE_NAME": "Nom/Raison sociale:",
       "SEARCH_BY_NUMBER": "Rechercher par numéro:"
+    },
+    "TASKS": {
+      "ADD_TASK_TITLE": "Ajouter une tache:"
     }
   },
   "ERROR": {

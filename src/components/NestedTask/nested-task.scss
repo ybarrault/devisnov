@@ -1,0 +1,13 @@
+nested-task {
+  .task {
+    padding: map-get($gutters, 'xs') 0;
+    border-top: 1px solid map-get($colors, 'light');
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    .actions {
+      margin-left: map-get($gutters, 'xs');
+    }
+  }
+}

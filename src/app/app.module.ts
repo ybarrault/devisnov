@@ -20,7 +20,6 @@ import {HomePageModule} from '../pages/home/home.module';
 import {ContextService} from '../services/context.service';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {Deeplinks} from '@ionic-native/deeplinks';
-import {TabPage} from '../components/Tab/tab';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -47,7 +46,6 @@ export function createTranslateLoader(http: HttpClient) {
       },
     }),
     BrowserAnimationsModule,
-    NoopAnimationsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

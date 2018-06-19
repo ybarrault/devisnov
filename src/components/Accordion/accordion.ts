@@ -1,37 +1,37 @@
-import {
-  AfterContentInit,
-  Component,
-  ContentChildren,
-  EventEmitter,
-  Input,
-  Output,
-  QueryList,
-} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {AccordionItem} from './AccordionItem/accordion-item';
+import {Component, ContentChildren, OnInit, AfterViewInit, Input} from '@angular/core';
+import {AccordionItemComponent} from "./AccordionItem/accordion-item";
 
 @Component({
   selector: 'accordion',
-  templateUrl: 'accordion.html'
+  templateUrl: './accordion.html',
 })
-export class Accordion implements AfterContentInit {
-  @ContentChildren(AccordionItem) accordionItems: QueryList<AccordionItem>;
-  @Input() private uid: string = 'uid';
-  constructor(
-    private translateSvc: TranslateService,
-  ) {
+export class AccordionComponent implements OnInit, AfterViewInit {
+  @Input() uid:string;
+  @ContentChildren(AccordionItemComponent) items: AccordionItemComponent[];
+  constructor() { }
+
+  ngOnInit() {
   }
 
-  public ngAfterContentInit(){
-
-    if (this.accordionItems) {
-      this.accordionItems.forEach((el, index) => {
-        el.uid = `${this.uid}-${index}`;
-        el.isOpened = false;
-        el.toggle.subscribe(({type, uid}) => {
-          el.isOpened = type === 'open' && uid === el.uid;
-        });
+  ngAfterViewInit() {
+    console.group('>>> uids:');
+    this.items.forEach((item, index) => {
+      item.uid=`${this.uid}-${index}`;
+      console.log('item.uid', item.uid);
+      item.toggle.subscribe(({uid}) => {
+        this.toggleOne(uid);
       });
-    }
+    });
+    console.groupEnd();
+  }
+
+  toggleOne(uid: string) {
+    this.items.forEach((item) => {
+      if (item.uid === uid) {
+        item.isActive = !item.isActive;
+      } else {
+        item.isActive = false;
+      }
+    });
   }
 }

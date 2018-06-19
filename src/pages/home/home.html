@@ -10,26 +10,24 @@
   <h2>{{'PAGES.HOME.HEADER' | translate}}</h2>
   <accordion uid="home" *ngIf="!!profile">
     <accordion-item>
-      <div accordion-item-header>{{'PAGES.HOME.BUSINESS_ADHERENT' | translate}}</div>
-      <div accordion-item-content>
+      <div header>{{'PAGES.HOME.BUSINESS_ADHERENT' | translate}}</div>
+      <div content>
         <business-adherent></business-adherent>
       </div>
 
     </accordion-item>
     <accordion-item>
-      <div accordion-item-header>{{'PAGES.HOME.SALES_LEAD' | translate}}</div>
-      <div accordion-item-content>
+      <div header>{{'PAGES.HOME.SALES_LEAD' | translate}}</div>
+      <div content>
         <sales-lead
           [client]="profile.client"
         ></sales-lead>
       </div>
     </accordion-item>
   </accordion>
-  <button ion-button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}</button>
 </ion-content>
 
 <ion-footer>
-  <ion-row>
-    <ion-col>Uninov - Copyright@2018 all rights reserved</ion-col>
-  </ion-row>
+  <div>Uninov - Copyright@2018 all rights reserved</div>
+  <button ion-button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}</button>
 </ion-footer>

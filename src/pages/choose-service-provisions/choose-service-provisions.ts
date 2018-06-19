@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {IonicPage, NavController, NavParams, Tabs} from 'ionic-angular';
 import {ICatalogue} from '../../models/ICatalogue';
 import {ContextService} from '../../services/context.service';
-import {IServiceProvision} from '../../models/IServiceProvision';
+import {IServiceProvision, IServiceProvisionByCatalogue} from '../../models/IServiceProvision';
 
 @IonicPage()
 @Component({
@@ -11,13 +11,9 @@ import {IServiceProvision} from '../../models/IServiceProvision';
 })
 export class ChooseServiceProvisionsPage implements OnInit {
   @Input() catalogues: ICatalogue[];
-  private serviceProvisionsByCatalogue: {
-    id: string,
-    code: string,
-    label: string,
-    serviceProvisions: IServiceProvision[]
-  }[] = [];
-  private tab : string = 'TabPage';
+  @ViewChild('myTabs') tabRef: Tabs;
+  public serviceProvisionsByCatalogue: IServiceProvisionByCatalogue[] = [];
+  public tab : string = 'TabPage';
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -31,10 +27,14 @@ export class ChooseServiceProvisionsPage implements OnInit {
     this.setServiceProvisionsByCatalogue();
   }
 
+  public ionViewDidEnter() {
+    this.tabRef.select(1);
+  }
+
   public setServiceProvisionsByCatalogue() {
     this.serviceProvisionsByCatalogue = this.catalogues.map(
       catalogue => {
-        const res = {
+        const res: IServiceProvisionByCatalogue = {
           id: catalogue.id,
           code: catalogue.code,
           label: catalogue.label,
@@ -45,22 +45,20 @@ export class ChooseServiceProvisionsPage implements OnInit {
         catalogue.thematics.forEach(thematic => {
           if (!!thematic.serviceProvisions) {
             thematic.serviceProvisions.forEach(serviceProvision => {
-              const foundServiceProvision = filteredServiceProvisions.findIndex(filteredServiceProvision => filteredServiceProvision.id === serviceProvision.id);
+              const foundServiceProvision = filteredServiceProvisions.find(filteredServiceProvision => filteredServiceProvision.id === serviceProvision.id);
               if (!foundServiceProvision) {
                 filteredServiceProvisions = [...filteredServiceProvisions, serviceProvision];
               }
             })
           }
         });
+        filteredServiceProvisions.sort((sp1: IServiceProvision, sp2: IServiceProvision) => {
+          return sp1.label.localeCompare(sp2.label);
+        });
 
         res.serviceProvisions = filteredServiceProvisions;
-
         return res;
       }
     )
-  }
-
-  next() {
-    // this.contextSvc.selectedCataloguesWithThematics = this.selectedCataloguesWithThematics;
   }
 }

@@ -45,7 +45,6 @@ export class ChooseThematicsPage implements OnInit {
       const refCatalogue = Object.assign({}, this.catalogues.find(catalogue => catalogue.id === catalogueId));
       refCatalogue.thematics = [this.getThematicFromIds(thematicId, catalogueId)];
       this.selectedCataloguesWithThematics = [...this.selectedCataloguesWithThematics, refCatalogue];
-
     }
   }
 

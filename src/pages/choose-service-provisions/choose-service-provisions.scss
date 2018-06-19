@@ -1,7 +1,12 @@
 page-choose-service-provisions {
   ion-tabs {
     .tabbar {
-      //opacity: 1;
+      opacity: 1;
+      top: 56px;
+
+      .tab-button[aria-selected=true] {
+        color: map-get($customColors, 'CER_BLUE');
+      }
     }
   }
 }

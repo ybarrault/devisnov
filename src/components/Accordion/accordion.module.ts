@@ -1,16 +1,17 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { TranslateModule } from '@ngx-translate/core';
-import { Accordion } from './accordion';
-import {AccordionItem} from './AccordionItem/accordion-item';
+import {NgModule} from '@angular/core';
+import {IonicPageModule} from 'ionic-angular';
+import {TranslateModule} from '@ngx-translate/core';
+import {AccordionComponent} from './accordion';
+import {AccordionItemComponent} from './AccordionItem/accordion-item';
 
 @NgModule({
-  declarations: [Accordion, AccordionItem],
+  declarations: [AccordionComponent, AccordionItemComponent],
   imports: [
-    IonicPageModule.forChild(Accordion),
+    IonicPageModule.forChild(AccordionComponent),
     TranslateModule.forChild()
   ],
-  exports: [Accordion, AccordionItem],
-  entryComponents: [Accordion],
+  exports: [AccordionComponent, AccordionItemComponent],
+  entryComponents: [AccordionComponent],
 })
-export class AccordionModule {}
+export class AccordionComponentModule {
+}

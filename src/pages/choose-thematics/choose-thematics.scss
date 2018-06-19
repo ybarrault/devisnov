@@ -24,7 +24,7 @@ page-choose-thematics {
         left: -$width /2 + $height/2;
         top: $swiper_height/2 - $height/2;
         text-align: center;
-        background-color: map-get($colors, 'CER_BLACK');
+        background-color: map-get($customColors, 'CER_BLACK');
         color: white
       }
     }
@@ -50,9 +50,9 @@ page-choose-thematics {
           height: 100%;
           width: 100%;
           z-index: 1;
-          background-color: transparentize(map-get($colors, 'CER_BLUE'), .3);
+          background-color: transparentize(map-get($customColors, 'CER_BLUE'), .3);
         }
-        border: 1px solid map-get($colors, 'CER_BLUE');
+        border: 1px solid map-get($customColors, 'CER_BLUE');
       }
     }
   }

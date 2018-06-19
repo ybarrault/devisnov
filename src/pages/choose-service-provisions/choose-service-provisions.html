@@ -6,8 +6,22 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-tabs [selectedIndex]="0" tabsPlacement="top">
+<ion-content padding>
+  <ion-tabs #myTabs *ngIf="serviceProvisionsByCatalogue" selectedIndex="0" tabsPlacement="top">
+    <ion-tab
+      *ngFor="let catalogue of serviceProvisionsByCatalogue"
+      [tabTitle]="catalogue.label"
+      [root]="tab"
+      [rootParams]="catalogue"
+    >
+    </ion-tab>
+    <ion-tab
+      *ngFor="let catalogue of serviceProvisionsByCatalogue"
+      [tabTitle]="catalogue.label"
+      [root]="tab"
+      [rootParams]="catalogue"
+    >
+    </ion-tab>
     <ion-tab
       *ngFor="let catalogue of serviceProvisionsByCatalogue"
       [tabTitle]="catalogue.label"
@@ -18,9 +32,7 @@
   </ion-tabs>
 </ion-content>
 
-<ion-footer>
-  <ion-row>
-    <ion-col>Uninov - Copyright@2018 all rights reserved</ion-col>
-  </ion-row>
-</ion-footer>
 
+<ion-footer>
+    <div>Uninov - Copyright@2018 all rights reserved</div>
+</ion-footer>

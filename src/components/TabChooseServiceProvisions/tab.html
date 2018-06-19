@@ -1,0 +1,16 @@
+<ion-content>
+  <div class="section-title">
+    <h2>{{catalogue.label}}</h2>
+  </div>
+  <accordion
+    *ngIf="catalogue.serviceProvisions && catalogue.serviceProvisions.length"
+    [uid]="catalogue.id"
+  >
+    <accordion-item *ngFor="let serviceProvision of catalogue.serviceProvisions">
+      <div header><strong>{{serviceProvision.label}}</strong></div>
+      <div content>
+        <service-provision [serviceProvision]="serviceProvision" [catalogueId]="catalogue.id"></service-provision>
+      </div>
+    </accordion-item>
+  </accordion>
+</ion-content>

@@ -1,12 +1,10 @@
-<li class="accordion-item" [ngClass]="isOpened ? 'opened' : ''">
-  <div class="header" #header (click)="toggleContent()">
-    <ng-content select="[accordion-item-header]">
-
-    </ng-content>
+<li class="accordion-item" [ngClass]="isActive? 'active': ''" >
+  <div class="header" (click)="onClick()">
+    <ng-content select=[header]></ng-content>
   </div>
-  <div class="content">
-    <div class="inner-wrapper" #content *ngIf="isOpened">
-      <ng-content select="[accordion-item-content]"></ng-content>
+  <div class="content-wrapper">
+    <div class="content" [@toggle]="isActive ? 'expand' : 'collapse'">
+      <ng-content select=[content]></ng-content>
     </div>
   </div>
 </li>

@@ -1,91 +1,57 @@
 import {
   Component,
   ContentChild,
-  EventEmitter, forwardRef,
-  Input,
-  OnInit, Output,
-  ViewChild
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  Output,
 } from '@angular/core';
-import {Accordion} from '../accordion';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'accordion-item',
-  templateUrl: 'accordion-item.html',
-  // animations: [
-  //   trigger(
-  //     'openClose',
-  //     [
-  //       state('collapsed, void', style({
-  //         height: '0px',
-  //         color: 'maroon',
-  //         borderColor: 'maroon',
-  //         transition: 'height .5s',
-  //       })),
-  //       state('expanded', style({
-  //         height: '*',
-  //         borderColor: 'green',
-  //         color: 'green',
-  //         transition: 'height .5s',
-  //       })),
-  //       transition(
-  //         'collapsed <=> expanded', [animate(500, style({height: '250px'})), animate(500)])
-  //     ])
-  // ]
+  templateUrl: './accordion-item.html',
+  animations: [
+    trigger('toggle', [
+      state('expand', style({
+        height: '*',
+        transform: 'scale(1)'
+      })),
+      state('collapse',   style({
+        height: '0px',
+        transform: 'scale(1.1)'
+      })),
+      transition('collapse => expand', animate('500ms ease-in')),
+      transition('expand => collapse', animate('500ms ease-out'))
+    ]),
+  ]
 })
-export class AccordionItem implements OnInit {
-  @Input() uid: string;
-  @Output() toggle: EventEmitter<any> = new EventEmitter();
-  @Input() _isOpened: boolean = false;
-  @Input() public set isOpened(val: boolean) {
-    this._isOpened = val;
-    // this.cdRef.detectChanges();
+export class AccordionItemComponent implements OnInit {
+  private _isActive: boolean = false;
+  private _uid: string;
+  @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
+  @ContentChild('header') header: ElementRef;
+  @ContentChild('content') content: ElementRef;
+  constructor() {}
+
+  get uid(): string {
+    return this._uid;
   }
-  public get isOpened() { return this._isOpened; }
-
-  @ViewChild('header') header;
-  @ViewChild('content') content;
-  @ContentChild(forwardRef(() => Accordion)) contentChild: Accordion;
-
-  constructor() {
+  set uid(uid: string) {
+    this._uid = uid;
   }
-
-  public ngOnInit(){
-    // console.log('>>> context', this);
-    // console.log('>>> header', this.header);
-    // console.log('>>> content', this.content);
-    // this.setContentStyle(this.isOpened);
+  get isActive(): boolean {
+    return this._isActive;
+  }
+  set isActive(isActive: boolean) {
+    this._isActive = isActive;
   }
 
-  public test(){
-    console.log('test');
+  ngOnInit() {
+
   }
 
-  public toggleContent(){
-    if (this.isOpened) {
-      this.toggle.emit({uid: this.uid, type: 'close'})
-    } else {
-      this.toggle.emit({uid: this.uid, type: 'open'})
-    }
+  onClick() {
+    this.toggle.emit({uid: this.uid});
   }
-
-  // public getMaxHeight(){
-  //   const maxHeight = Math.ceil(this.content.nativeElement.getBoundingClientRect().height);
-  //   return maxHeight;
-  // }
-
-  // public setContentStyle(isOpened: boolean) {
-  //   const maxHeight = Math.ceil(this.content.nativeElement.getBoundingClientRect().height);
-  //   // TODO: refine duration calculation (use some bezier func ?)
-  //   const duration = 0.5;
-  //
-  //   const currentMaxHeight = isOpened ? `${maxHeight}px`: '0px';
-  //   const currentTransition = `max-height ${duration}s`;
-  //   console.group('>>> setContentStyle', this.uid);
-  //   console.log('>>> currentMaxHeight', currentMaxHeight);
-  //
-  //   this.style = { maxHeight: currentMaxHeight, transition: currentTransition };
-  //   console.log('>>> style', this.style);
-  //   console.groupEnd();
-  // }
 }
