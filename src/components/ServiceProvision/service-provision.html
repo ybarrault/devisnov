@@ -1,10 +1,8 @@
 <div class="tasks-wrapper">
   <div class="tasks-header">
+    <strong>{{serviceProvision.tasks && serviceProvision.tasks.length ? serviceProvision.tasks.length : 0}} {{'COMMON.RELATED_TASKS' | translate}}</strong>
     <div>
-      {{serviceProvision.label}} - <strong>{{serviceProvision.tasks && serviceProvision.tasks.length ? serviceProvision.tasks.length : 0}} {{'COMMON.RELATED_TASKS' | translate}}</strong>
-    </div>
-    <div>
-      <div>{{'COMPONENTS.TASKS.ADD_TASK_TITLE' | translate}}</div>
+      <span>{{'COMPONENTS.TASKS.ADD_TASK_TITLE' | translate}}</span>
       <button ion-button type="button" (click)="addTask()">{{'COMMON.ADD' | translate}}</button>
     </div>
   </div>
@@ -23,11 +21,9 @@
     <div content>
       <div class="tasks-wrapper">
         <div class="tasks-header">
+          <strong>{{spChild.tasks && spChild.tasks.length ? spChild.tasks.length : 0}} {{'COMMON.RELATED_TASKS' | translate}}</strong>
           <div>
-            {{spChild.label}} - <strong>{{spChild.tasks && spChild.tasks.length ? spChild.tasks.length : 0}} {{'COMMON.RELATED_TASKS' | translate}}</strong>
-          </div>
-          <div>
-            <div>{{'COMPONENTS.TASKS.ADD_TASK_TITLE' | translate}}</div>
+            <span>{{'COMPONENTS.TASKS.ADD_TASK_TITLE' | translate}}</span>
             <button ion-button type="button" (click)="addTask()">{{'COMMON.ADD' | translate}}</button>
           </div>
         </div>
@@ -45,11 +41,9 @@
           <div content>
             <div class="tasks-wrapper">
               <div class="tasks-header">
+                <strong>{{spSecondChild.tasks && spSecondChild.tasks.length ? spSecondChild.tasks.length : 0}} {{'COMMON.RELATED_TASKS' | translate}}</strong>
                 <div>
-                  {{spSecondChild.label}} - <strong>{{spSecondChild.tasks && spSecondChild.tasks.length ? spSecondChild.tasks.length : 0}} {{'COMMON.RELATED_TASKS' | translate}}</strong>
-                </div>
-                <div>
-                  <div>{{'COMPONENTS.TASKS.ADD_TASK_TITLE' | translate}}</div>
+                  <span>{{'COMPONENTS.TASKS.ADD_TASK_TITLE' | translate}}</span>
                   <button ion-button type="button" (click)="addTask()">{{'COMMON.ADD' | translate}}</button>
                 </div>
               </div>
