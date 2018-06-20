@@ -10,7 +10,7 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve -p 80",
-    "start": "npm run server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "@angular/animations": "5.2.10",
