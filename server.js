@@ -2,4 +2,7 @@ var express = require('express');
 var server = express();
 server.set('port', (process.env.PORT || 8080));
 server.use('/', express.static(__dirname + '/www'));
-server.listen(server.get('port'));
+server.listen(server.get('port'), function () {
+    console.log('Listening on port' + server.get('port'));
+    console.log('Directory: ' + ___dirname + '/www');
+});
