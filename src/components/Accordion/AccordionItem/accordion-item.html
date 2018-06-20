@@ -1,6 +1,7 @@
 <li class="accordion-item" [ngClass]="isActive? 'active': ''" >
   <div class="header" (click)="onClick()">
     <ng-content select=[header]></ng-content>
+    <ion-icon name="arrow-down"></ion-icon>
   </div>
   <div class="content-wrapper">
     <div class="content" [@toggle]="isActive ? 'expand' : 'collapse'">

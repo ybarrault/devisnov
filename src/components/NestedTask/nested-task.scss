@@ -1,7 +1,7 @@
 nested-task {
   .task {
     padding: map-get($gutters, 'xs') 0;
-    border-top: 1px solid map-get($colors, 'light');
+    border-top: 1px solid map-get($customColors, 'CER_ORANGE_LIGHT');
     display: flex;
     flex-flow: row;
     justify-content: space-between;

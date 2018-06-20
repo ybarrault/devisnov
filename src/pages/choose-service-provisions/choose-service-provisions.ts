@@ -1,8 +1,8 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {IonicPage, NavController, NavParams, Tabs} from 'ionic-angular';
-import {ICatalogue} from '../../models/ICatalogue';
+import {ICatalogue, ICatalogueWithSPOnly} from '../../models/ICatalogue';
 import {ContextService} from '../../services/context.service';
-import {IServiceProvision, IServiceProvisionByCatalogue} from '../../models/IServiceProvision';
+import {IServiceProvision} from '../../models/IServiceProvision';
 
 @IonicPage()
 @Component({
@@ -12,7 +12,7 @@ import {IServiceProvision, IServiceProvisionByCatalogue} from '../../models/ISer
 export class ChooseServiceProvisionsPage implements OnInit {
   @Input() catalogues: ICatalogue[];
   @ViewChild('myTabs') tabRef: Tabs;
-  public serviceProvisionsByCatalogue: IServiceProvisionByCatalogue[] = [];
+  public catalogueWithServiceProvisions: ICatalogueWithSPOnly[] = [];
   public tab : string = 'TabPage';
   constructor(
     public navCtrl: NavController,
@@ -28,16 +28,16 @@ export class ChooseServiceProvisionsPage implements OnInit {
   }
 
   public ionViewDidEnter() {
-    this.tabRef.select(1);
+    this.tabRef.select(0);
   }
 
   public setServiceProvisionsByCatalogue() {
-    this.serviceProvisionsByCatalogue = this.catalogues.map(
+    this.catalogueWithServiceProvisions = this.catalogues.map(
       catalogue => {
-        const res: IServiceProvisionByCatalogue = {
+        const res: ICatalogueWithSPOnly = {
           id: catalogue.id,
-          code: catalogue.code,
           label: catalogue.label,
+          code: catalogue.code,
           serviceProvisions: []
         };
 

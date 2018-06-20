@@ -3,16 +3,17 @@ import { IonicPageModule } from 'ionic-angular';
 import { TranslateModule } from '@ngx-translate/core';
 import {AccordionComponentModule} from '../Accordion/accordion.module';
 import {ServiceProvision} from '../ServiceProvision/service-provision';
-import {NestedTask} from '../NestedTask/nested-task';
+import {TaskManagerModule} from '../TaskManager/task-manager.module';
 
 @NgModule({
-  declarations: [ServiceProvision, NestedTask],
+  declarations: [ServiceProvision],
   imports: [
     IonicPageModule.forChild(ServiceProvision),
     TranslateModule.forChild(),
-    AccordionComponentModule
+    AccordionComponentModule,
+    TaskManagerModule,
   ],
-  exports: [ServiceProvision, NestedTask],
+  exports: [ServiceProvision],
   entryComponents: [ServiceProvision],
 })
 export class ServiceProvisionModule {}

@@ -1,0 +1,15 @@
+<div class="tasks-wrapper">
+  <div class="tasks-header">
+    <div>
+      <strong>{{tasks.length}} {{'COMMON.RELATED_TASKS' | translate}} - </strong>
+      <button ion-button type="button" (click)="addTask()">{{'COMMON.ADD' | translate}}</button>
+    </div>
+  </div>
+  <div class="tasks-content" *ngIf="tasks && tasks.length">
+    <ul>
+      <li *ngFor="let task of tasks">
+        <nested-task [task]="task"></nested-task>
+      </li>
+    </ul>
+  </div>
+</div>

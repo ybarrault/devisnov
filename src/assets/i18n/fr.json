@@ -27,7 +27,8 @@
       "TITLE": "Choisissez vos thématiques"
     },
     "CHOOSE_SERVICE_PROVISIONS": {
-      "TITLE": "Choisissez vos prestations"
+      "TITLE": "Choisissez vos prestations",
+      "CHOICES": "Choisissez / Modifier :"
     }
   },
   "COMPONENTS": {

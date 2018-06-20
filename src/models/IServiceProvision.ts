@@ -8,13 +8,8 @@ export interface IServiceProvision {
   billingMode: string;
   domain?: string;
   skill?: string;
+  price?: number;
+  selected?: boolean;
   serviceProvisions: IServiceProvision[];
   tasks: ITask[];
-}
-
-export interface IServiceProvisionByCatalogue {
-  id: string,
-  code: string,
-  label: string,
-  serviceProvisions: IServiceProvision[]
 }

@@ -1,4 +1,10 @@
 page-tab {
   $tabbarHeight: 56px;
   padding-top: $tabbarHeight;
+
+  .sp-label {
+    &.selected {
+      color: map-get($customColors, 'CER_BLUE');
+    }
+  }
 }

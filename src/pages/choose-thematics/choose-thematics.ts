@@ -33,10 +33,10 @@ export class ChooseThematicsPage implements OnInit {
       const foundSelectedThematic = foundSelectedCatalogue && foundSelectedCatalogue.thematics ?
         foundSelectedCatalogue.thematics.find(item => item.id === thematicId) : undefined;
       if (!!foundSelectedThematic) {
-        // If we thematic was already selected, we remove it
+        // If thematic was already selected, we remove it
         foundSelectedCatalogue.thematics = foundSelectedCatalogue.thematics.filter(item => item.id !== thematicId);
       } else {
-        // If we thematic was not selected, we add it
+        // If thematic was not selected, we add it
         foundSelectedCatalogue.thematics = [...foundSelectedCatalogue.thematics, this.getThematicFromIds(thematicId, catalogueId)];
       }
     } else {
@@ -59,7 +59,6 @@ export class ChooseThematicsPage implements OnInit {
   }
 
   next() {
-    this.contextSvc.set(this.selectedCataloguesWithThematics);
     this.navCtrl.push('ChooseServiceProvisionsPage', {selectedCataloguesWithThematics: this.selectedCataloguesWithThematics});
   }
 }

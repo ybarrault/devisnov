@@ -20,6 +20,7 @@ import {HomePageModule} from '../pages/home/home.module';
 import {ContextService} from '../services/context.service';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {Deeplinks} from '@ionic-native/deeplinks';
+import {EngagementLetterStateService} from '../services/state.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -58,6 +59,7 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthenticationService,
+    EngagementLetterStateService,
     ContextService,
     Deeplinks,
     LoaderService,

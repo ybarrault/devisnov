@@ -1,21 +1,22 @@
 .accordion-item {
+  padding: map-get($gutters, 'sm');
+  margin: map-get($gutters, 'xs') 0;
+  border: 1px solid transparentize(map-get($customColors, 'CER_SHADOW_GREY'), .5);
+  box-shadow: 2px 2px 10px map-get($customColors, 'CER_SHADOW_GREY');
   > .header {
     cursor: pointer;
     display: flex;
     flex-flow: row;
     align-items: center;
     justify-content: space-between;
-    &::after {
-      content: '';
-      display: block;
-      height: 0;
-      width: 0;
-      border: map-get($gutters, 'sm') solid transparent;
-      border-bottom-color: map-get($customColors, 'CER_ORANGE_LIGHT');
-      transform: rotate(180deg);
+    > ion-icon {
+      color: map-get($customColors, 'CER_ORANGE_LIGHT');
+      transform: rotate(0deg);
       transition: transform .5s;
     }
   }
+
+
 
   .content-wrapper {
     overflow: hidden;
@@ -27,12 +28,9 @@
 
   &.active {
     > .header {
-      &::after {
-        transform: rotate(0deg);
+      > ion-icon {
+        transform: rotate(180deg);
       }
-    }
-    .content-wrapper {
-      background-color: transparentize(map-get($customColors, 'CER_ORANGE_LIGHT'), .7);
     }
   }
 }

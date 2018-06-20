@@ -1,60 +1,32 @@
-<div class="tasks-wrapper">
-  <div class="tasks-header">
-    <strong>{{serviceProvision.tasks && serviceProvision.tasks.length ? serviceProvision.tasks.length : 0}} {{'COMMON.RELATED_TASKS' | translate}}</strong>
-    <div>
-      <span>{{'COMPONENTS.TASKS.ADD_TASK_TITLE' | translate}}</span>
-      <button ion-button type="button" (click)="addTask()">{{'COMMON.ADD' | translate}}</button>
-    </div>
-  </div>
-  <div class="tasks-content" *ngIf="serviceProvision.tasks && serviceProvision.tasks.length">
-    <ul>
-      <li *ngFor="let task of serviceProvision.tasks">
-        <nested-task [task]="task"></nested-task>
-      </li>
-    </ul>
-  </div>
-</div>
+<task-manager [tasks]="serviceProvision.tasks"></task-manager>
 
 <accordion *ngIf="serviceProvision.serviceProvisions && serviceProvision.serviceProvisions.length" [uid]="catalogueId + '-' + serviceProvision.id">
   <accordion-item *ngFor="let spChild of serviceProvision.serviceProvisions">
-    <div header><strong>{{spChild.label}}</strong></div>
+    <div header >
+      <strong
+        [ngClass]="spChild.selected ? 'sp-label selected' : 'sp-label'"
+      >
+        <ion-icon *ngIf="spChild.selected" name="checkmark-circle-outline"></ion-icon>
+        {{spChild.label}}
+      </strong>
+      <strong *ngIf="spChild.price" class="price"> - {{spChild.price}}</strong>
+    </div>
     <div content>
-      <div class="tasks-wrapper">
-        <div class="tasks-header">
-          <strong>{{spChild.tasks && spChild.tasks.length ? spChild.tasks.length : 0}} {{'COMMON.RELATED_TASKS' | translate}}</strong>
-          <div>
-            <span>{{'COMPONENTS.TASKS.ADD_TASK_TITLE' | translate}}</span>
-            <button ion-button type="button" (click)="addTask()">{{'COMMON.ADD' | translate}}</button>
-          </div>
-        </div>
-        <div class="tasks-content" *ngIf="spChild.tasks && spChild.tasks.length">
-          <ul>
-            <li *ngFor="let task of spChild.tasks">
-              <nested-task [task]="task"></nested-task>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <task-manager [tasks]="spChild.tasks"></task-manager>
+
       <accordion *ngIf="spChild.serviceProvisions && spChild.serviceProvisions.length" [uid]="catalogueId + '-' +serviceProvision.id+ '-' +spSecondChild.id">
         <accordion-item *ngFor="let spSecondChild of spChild.serviceProvisions">
-          <div header><strong>{{spSecondChild.label}}</strong></div>
+          <div header >
+            <strong
+              [ngClass]="spSecondChild.selected ? 'sp-label selected' : 'sp-label'"
+            >
+              <ion-icon *ngIf="spSecondChild.selected" name="checkmark-circle-outline"></ion-icon>
+              {{spSecondChild.label}}
+            </strong>
+            <strong *ngIf="spSecondChild.price" class="price"> - {{spSecondChild.price}}</strong>
+          </div>
           <div content>
-            <div class="tasks-wrapper">
-              <div class="tasks-header">
-                <strong>{{spSecondChild.tasks && spSecondChild.tasks.length ? spSecondChild.tasks.length : 0}} {{'COMMON.RELATED_TASKS' | translate}}</strong>
-                <div>
-                  <span>{{'COMPONENTS.TASKS.ADD_TASK_TITLE' | translate}}</span>
-                  <button ion-button type="button" (click)="addTask()">{{'COMMON.ADD' | translate}}</button>
-                </div>
-              </div>
-              <div class="tasks-content" *ngIf="spSecondChild.tasks && spSecondChild.tasks.length">
-                <ul>
-                  <li *ngFor="let task of spSecondChild.tasks">
-                    <nested-task [task]="task"></nested-task>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <task-manager [tasks]="spSecondChild.tasks"></task-manager>
           </div>
         </accordion-item>
       </accordion>

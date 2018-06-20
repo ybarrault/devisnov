@@ -46,7 +46,6 @@ export class LoginPage implements OnInit {
               lastName,
               firstName,
             });
-            this.authSvc.getLogin();
             this.navCtrl.setRoot('HomePage');
           },
           async (error: Error) => {
