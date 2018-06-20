@@ -10,7 +10,8 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve -p 80",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "ionic-app-scripts build"
   },
   "dependencies": {
     "@angular/animations": "5.2.10",
@@ -41,8 +42,6 @@
     "@ionic/app-scripts": "3.1.9"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "3.1.9",
-    "typescript": "~2.6.2"
   },
   "description": "A Timwi PoC ",
   "engines": {
