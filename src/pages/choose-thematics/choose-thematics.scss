@@ -13,11 +13,13 @@ page-choose-thematics {
       position: relative;
       height: $width;
       width: $height;
+      z-index: 2;
 
       h2 {
         display: block;
         position: absolute;
         margin: 0;
+        font-weight: 300;
         transform: rotate(-90deg);
         width: $width;
         height: $height;
@@ -25,7 +27,25 @@ page-choose-thematics {
         top: $swiperHeight/2 - $height/2 +3px;
         text-align: center;
         background-color: map-get($customColors, 'CER_BLACK');
-        color: white
+        border-bottom: 1px solid map-get($colors, 'light');
+        color: map-get($colors, 'light');
+
+        &::after, &::before  {
+          position: absolute;
+          bottom: -20px;
+          left: calc(50% - 5px);
+          content: '';
+          display: block;
+          width: 0;
+          height: 0;
+          border: 10px solid transparent;
+          border-top-color: map-get($customColors, 'CER_BLACK');
+        }
+
+        &::before {
+          bottom: -21px;
+          border-top-color: map-get($colors, 'light');
+        }
       }
     }
 
