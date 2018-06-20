@@ -12,7 +12,7 @@ import {ILoginResponse} from '../../models/ILogin';
   templateUrl: 'login.html'
 })
 export class LoginPage implements OnInit {
-  private loginForm: FormGroup;
+  public loginForm: FormGroup;
   public username: string;
   public password: string;
 
@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
     });
   }
 
-  private async onSubmit() {
+  public async onSubmit() {
     try {
       await this.loaderSvc.showSpinner();
       this.authSvc.authenticate({username: this.username, password: this.password}).subscribe(

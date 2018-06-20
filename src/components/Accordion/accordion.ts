@@ -14,15 +14,15 @@ export class AccordionComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.group('>>> uids:');
+    // console.group('>>> uids:');
     this.items.forEach((item, index) => {
       item.uid=`${this.uid}-${index}`;
-      console.log('item.uid', item.uid);
+      // console.log('item.uid', item.uid);
       item.toggle.subscribe(({uid}) => {
         this.toggleOne(uid);
       });
     });
-    console.groupEnd();
+    // console.groupEnd();
   }
 
   toggleOne(uid: string) {

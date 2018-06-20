@@ -3,6 +3,7 @@ page-tab {
   padding-top: $tabbarHeight;
 
   .sp-label {
+    transition: color .3s ease-in-out;
     &.selected {
       color: map-get($customColors, 'CER_BLUE');
     }

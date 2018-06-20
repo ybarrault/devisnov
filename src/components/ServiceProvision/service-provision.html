@@ -9,8 +9,8 @@
       >
         <ion-icon *ngIf="spChild.selected" name="checkmark-circle-outline"></ion-icon>
         {{spChild.label}}
+        <span *ngIf="spChild.price" class="price"> - {{spChild.price}}{{'COMMON.CURRENCY' | translate}}</span>
       </strong>
-      <strong *ngIf="spChild.price" class="price"> - {{spChild.price}}{{'COMMON.CURRENCY' | translate}}</strong>
     </div>
     <div content>
       <task-manager [tasks]="spChild.tasks"></task-manager>
@@ -24,8 +24,8 @@
             >
               <ion-icon *ngIf="spSecondChild.selected" name="checkmark-circle-outline"></ion-icon>
               {{spSecondChild.label}}
+              <span *ngIf="spSecondChild.price" class="price"> - {{spSecondChild.price}}{{'COMMON.CURRENCY' | translate}}</span>
             </strong>
-            <strong *ngIf="spSecondChild.price" class="price"> - {{spSecondChild.price}}{{'COMMON.CURRENCY' | translate}}</strong>
           </div>
           <div content>
             <task-manager [tasks]="spSecondChild.tasks"></task-manager>

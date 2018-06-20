@@ -4,5 +4,8 @@ business-adherent {
     flex-flow: row;
     justify-content: center;
     align-items: center;
+    color: map-get($customColors, 'CER_ORANGE_LIGHT');
+    font-size: 20px;
+    margin-top: map-get($gutters, 'sm');
   }
 }

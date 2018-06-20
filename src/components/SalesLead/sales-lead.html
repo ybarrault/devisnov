@@ -10,13 +10,16 @@
     </div>
   </form>
   <div class="client-information">
-    <button ion-button class="toggle-mode" [ngClass]="readOnly ? 'read-mode' : 'edit-mode'" type="button" (click)="toggleMode()">
-      <span *ngIf="readOnly; else editLabel">DISPLAY</span>
-      <ng-template #editLabel>
-        <span>EDIT</span>
-      </ng-template>
-    </button>
-    <form  *ngIf="!readOnly; else readOnlyTemplate" (submit)="searchSalesLead()">
+    <div class="button-wrapper">
+      <button ion-button class="toggle-mode" [ngClass]="readOnly ? 'read-mode' : 'edit-mode'" type="button" (click)="toggleMode()">
+        <ion-icon *ngIf="readOnly; else editLabel" name="build"></ion-icon>
+        <ng-template #editLabel>
+          <ion-icon ios="ios-eye" md="md-eye"></ion-icon>
+        </ng-template>
+      </button>
+    </div>
+
+    <form  *ngIf="!readOnly; else readOnlyTemplate" (submit)="saveClient()">
       <ion-item>
         <ion-label color="secondary">{{'COMPONENTS.SALES_LEAD.CORPORATE_NAME' | translate}}</ion-label>
         <ion-input type="text" name="corporate-name" [(ngModel)]="client.corporateName"></ion-input>
@@ -52,7 +55,7 @@
         <ion-input type="text" name="volumes" [(ngModel)]="client.volumes"></ion-input>
       </ion-item>
       <div class="button-wrapper">
-        <button ion-button type="submit" (click)="saveClient()">{{'COMMON.SAVE' | translate}}</button>
+        <button ion-button type="submit">{{'COMMON.SAVE' | translate}}</button>
       </div>
     </form>
 

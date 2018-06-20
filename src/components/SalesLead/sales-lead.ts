@@ -9,8 +9,8 @@ import {ContextService} from '../../services/context.service';
 export class SalesLead implements OnInit {
   @Input() client: IClient;
   public domainOptions: {value: string, label: string}[] = [];
+  public search: string = '';
   private readOnly: boolean = true;
-  private search: string = '';
 
   constructor(private contextSvc: ContextService) {
   }
@@ -29,11 +29,11 @@ export class SalesLead implements OnInit {
   }
 
   public searchSalesLead() {
-    console.log('>>> searchSalesLead', this.search);
+    alert('>>> searchSalesLead');
   }
 
   public saveClient() {
-    console.log('>>> saveClient', this.client);
+    alert('>>> saveClient');
     this.readOnly = true;
   }
 }

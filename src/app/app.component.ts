@@ -3,19 +3,15 @@ import {Nav, Platform} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
-import { LoginPage } from '../pages/login/login';
 import {TranslateService} from '@ngx-translate/core';
 import {AuthenticationService} from '../services/authentication.service';
-import { Deeplinks } from '@ionic-native/deeplinks';
-import {TaskPage} from '../pages/task/task';
-
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp implements OnInit {
   @ViewChild(Nav) private readonly nav: Nav;
-  private rootPage:any;
+  public rootPage:any;
 
   constructor(
     private platform: Platform,
@@ -24,7 +20,6 @@ export class MyApp implements OnInit {
     private translateSvc: TranslateService,
     private authSvc: AuthenticationService,
     private storageSvc: Storage,
-    private deeplinks: Deeplinks,
   ) {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

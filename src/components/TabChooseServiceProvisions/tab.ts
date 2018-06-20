@@ -29,6 +29,18 @@ export class TabPage implements OnInit {
   public updateServiceProvision({event, serviceProvision}) {
     event.stopPropagation();
     serviceProvision.selected = !serviceProvision.selected;
+
+    // update children
+    if (serviceProvision.serviceProvisions && serviceProvision.serviceProvisions.length) {
+      serviceProvision.serviceProvisions.forEach(spChild => {
+        spChild.selected = serviceProvision.selected;
+        if (spChild.serviceProvisions && spChild.serviceProvisions.length) {
+          spChild.serviceProvisions.forEach(spSecondChild => {
+            spSecondChild.selected = serviceProvision.selected;
+          });
+        }
+      });
+    }
     this.stateSvc.updateServiceProvision(this.catalogue.id, serviceProvision);
   }
 }

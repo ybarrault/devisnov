@@ -24,7 +24,9 @@ export class ChooseServiceProvisionsPage implements OnInit {
 
   public ngOnInit() {
     this.catalogues = this.navParams.get('selectedCataloguesWithThematics');
-    this.setServiceProvisionsByCatalogue();
+    if (this.catalogues && this.catalogues.length) {
+      this.setServiceProvisionsByCatalogue();
+    }
   }
 
   public ionViewDidEnter() {
@@ -60,5 +62,9 @@ export class ChooseServiceProvisionsPage implements OnInit {
         return res;
       }
     )
+  }
+
+  public end() {
+    alert('Fin de la démo, merci !');
   }
 }

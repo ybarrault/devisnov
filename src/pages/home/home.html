@@ -8,8 +8,8 @@
 
 <ion-content padding>
   <h2>{{'PAGES.HOME.HEADER' | translate}}</h2>
-  <accordion uid="home" *ngIf="!!profile">
-    <accordion-item>
+  <accordion uid="home" *ngIf="!!profile" startOpen="true">
+    <accordion-item _isActive="true">
       <div header><strong>{{'PAGES.HOME.BUSINESS_ADHERENT' | translate}}</strong></div>
       <div content>
         <business-adherent></business-adherent>
@@ -29,5 +29,5 @@
 
 <ion-footer>
   <div><strong>Uninov</strong> - {{'COMMON.COPYRIGHT' | translate}}</div>
-  <button ion-button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}</button>
+  <button ion-button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}<ion-icon name="arrow-forward"></ion-icon></button>
 </ion-footer>

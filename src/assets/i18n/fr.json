@@ -4,20 +4,23 @@
     "OK": "OK",
     "OR": "Ou",
     "SEARCH": "Rechercher",
+    "VALIDATE": "Valider",
     "SAVE": "Enregistrer",
     "EDIT": "Modifier",
     "DELETE": "Supprimer",
     "ADD": "+",
     "RELATED_TASKS": "tache(s) associée(s)",
     "NEXT": "Suivant",
+    "END": "Fin",
     "COPYRIGHT": "Copyright © 2018 Tous droits réservés",
     "CURRENCY": "€"
   },
   "PAGES": {
     "LOGIN": {
       "TITLE": "Login",
-      "USERNAME": "username",
-      "PASSWORD": "password"
+      "USERNAME": "Nom d'utilisateur:",
+      "PASSWORD": "Mot de passe:",
+      "LOGIN": "Se connecter"
     },
     "HOME": {
       "TITLE": "Accueil",
@@ -37,7 +40,7 @@
     "SALES_LEAD": {
       "SEARCH": "Rechercher un prospect:",
       "CORPORATE_NAME": "Nom/Raison sociale:",
-      "ADDRESS": "adresse:",
+      "ADDRESS": "Adresse:",
       "JOB": "Métier:",
       "DOMAIN": "Marché:",
       "CORE_BUSINESS": "Activité principale:",

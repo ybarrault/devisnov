@@ -4,7 +4,6 @@ import {AuthenticationService} from '../../services/authentication.service';
 import {ILogin} from '../../models/ILogin';
 import {ContextService} from '../../services/context.service';
 import {IProfile} from '../../models/IProfile';
-import {ChooseThematicsPage} from '../choose-thematics/choose-thematics';
 
 @IonicPage()
 @Component({
@@ -27,12 +26,11 @@ export class HomePage implements OnInit {
       // console.log('>>> HOME login:', this.login);
       this.contextSvc.getProfile(this.login.id).subscribe(
         (profile: IProfile) => {
-          // console.log('>>> HOME profile:', profile);
+          console.log('>>> HOME profile:', this.profile);
           this.profile = profile;
         });
     }
   }
-
 
   public next() {
     this.navCtrl.push('ChooseThematicsPage', {});

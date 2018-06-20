@@ -3,7 +3,7 @@ import {
   Component,
   ContentChildren,
   ElementRef,
-  Input, OnDestroy,
+  OnDestroy,
   ViewChild
 } from '@angular/core';
 import {SwiperSlide} from './SwiperSlide/swiper-slide';
@@ -14,8 +14,9 @@ import {debounce, throttle} from 'lodash';
   templateUrl: 'swiper.html'
 })
 export class SwiperComponent implements AfterViewInit, OnDestroy {
+  public throttledMouseMove: (event: any) => void;
+  public style: any = {};
   private debouncedSetMaxTranslate: () => void;
-  private throttledMouseMove: (event: any) => void;
   @ContentChildren(SwiperSlide) swiperSlides: SwiperSlide[];
   @ViewChild('swiperContainer') swiperContainer: ElementRef;
   @ViewChild('swiperContent') swiperContent: ElementRef;
@@ -24,7 +25,6 @@ export class SwiperComponent implements AfterViewInit, OnDestroy {
   private maxTranslate: number;
   private isMoving: boolean = false;
   private previousTranslate: number = 0;
-  private style: any = {};
   private translate: {
     startX: number,
     endX: number,
@@ -71,7 +71,7 @@ export class SwiperComponent implements AfterViewInit, OnDestroy {
 
   onTouchMove(e) {
     if (this.isMoving) {
-      // console.log('>>> process_touchmove', e);
+      console.log('>>> process_touchmove', e);
       this.translate.endX = e.touches[0].screenX;
       this.swipe();
     }

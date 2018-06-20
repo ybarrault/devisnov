@@ -6,7 +6,6 @@ import * as PARAMS from '../assets/json/params.json'
 
 import {tap} from 'rxjs/operators';
 import {ICatalogue} from '../models/ICatalogue';
-import {IThematic} from '../models/IThematic';
 const {SERVER, PORT, PROTOCOL} = CONFIG as any;
 const {urls:URLS} = PARAMS as any;
 const BASE_URL = `${PROTOCOL}://${SERVER}:${PORT}`;

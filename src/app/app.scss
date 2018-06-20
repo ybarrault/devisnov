@@ -22,9 +22,15 @@ ion-footer {
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
-  padding: map-get($gutters, 'xs');
+  padding: map-get($gutters, 'xs') map-get($gutters, 'sm');
   color: map-get($colors, 'light');
   background-color: map-get($customColors, 'CER_BLUE');
+
+  button {
+    ion-icon {
+      margin-left: map-get($gutters, 'xs');
+    }
+  }
 }
 
 

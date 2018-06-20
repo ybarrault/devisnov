@@ -18,7 +18,7 @@ import {HomePage} from '../pages/home/home';
 import {LoginPageModule} from '../pages/login/login.module';
 import {HomePageModule} from '../pages/home/home.module';
 import {ContextService} from '../services/context.service';
-import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {Deeplinks} from '@ionic-native/deeplinks';
 import {EngagementLetterStateService} from '../services/state.service';
 

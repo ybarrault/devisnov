@@ -14,8 +14,8 @@
         >
           <ion-icon *ngIf="serviceProvision.selected" name="checkmark-circle-outline"></ion-icon>
           {{serviceProvision.label}}
+          <span *ngIf="serviceProvision.price" class="price"> - {{serviceProvision.price}}{{'COMMON.CURRENCY' | translate}}</span>
         </strong>
-        <strong *ngIf="serviceProvision.price" class="price"> - {{serviceProvision.price}}{{'COMMON.CURRENCY' | translate}}</strong>
       </div>
       <div content>
         <service-provision [serviceProvision]="serviceProvision" [catalogueId]="catalogue.id"></service-provision>

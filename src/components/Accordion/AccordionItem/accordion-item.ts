@@ -2,7 +2,7 @@ import {
   Component,
   ContentChild,
   ElementRef,
-  EventEmitter,
+  EventEmitter, Input,
   OnInit,
   Output,
 } from '@angular/core';
@@ -15,11 +15,13 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     trigger('toggle', [
       state('expand', style({
         height: '*',
-        transform: 'scale(1)'
+        opacity: '1',
+        padding: '16px',
       })),
       state('collapse',   style({
         height: '0px',
-        transform: 'scale(1.1)'
+        opacity: '0',
+        padding: '0px',
       })),
       transition('collapse => expand', animate('500ms ease-in')),
       transition('expand => collapse', animate('500ms ease-out'))
@@ -27,7 +29,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   ]
 })
 export class AccordionItemComponent implements OnInit {
-  private _isActive: boolean = false;
+  @Input() private _isActive: boolean = false;
   private _uid: string;
   @Output() toggle: EventEmitter<any> = new EventEmitter<any>();
   @ContentChild('header') header: ElementRef;

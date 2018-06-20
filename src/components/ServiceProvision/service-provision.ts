@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {IServiceProvision} from '../../models/IServiceProvision';
 import {EngagementLetterStateService} from '../../services/state.service';
 
@@ -12,7 +12,7 @@ enum BILLING_MODES {
   selector: 'service-provision',
   templateUrl: 'service-provision.html'
 })
-export class ServiceProvision implements OnInit {
+export class ServiceProvision implements OnInit, OnChanges {
   @Input() serviceProvision: IServiceProvision;
   @Input() catalogueId: string;
   @Output() updatePrevision: EventEmitter<any> = new EventEmitter<any>();
@@ -29,19 +29,28 @@ export class ServiceProvision implements OnInit {
     console.log('this.serviceProvision', this.serviceProvision);
   }
 
+  public ngOnChanges() {
+    this.serviceProvision.price = this.calculateAllPrices(this.serviceProvision);
+  }
+
   public calculateAllPrices(serviceProvision): number {
     if (serviceProvision.serviceProvisions && serviceProvision.serviceProvisions.length) {
       let childrenPrice = serviceProvision.serviceProvisions.reduce((accumulator, spItem) => {
         spItem.price = this.calculateAllPrices(spItem);
+        // console.group(' --- calculateAllPrices');
+        // console.log('spItem.id', spItem.id);
+        // console.log('spItem.price', spItem.price);
+        // console.log('childrenPrice', childrenPrice);
+        // console.groupEnd();
         return accumulator + spItem.price;
       }, 0);
-      console.group('calculateAllPrices');
-      console.log('serviceProvision.id', serviceProvision.id);
-      console.log('childrenPrice', childrenPrice);
-      console.groupEnd();
+      // console.group('calculateAllPrices');
+      // console.log('serviceProvision.id', serviceProvision.id);
+      // console.log('childrenPrice', childrenPrice);
+      // console.groupEnd();
       return this.calculateSinglePrice(serviceProvision) + childrenPrice;
     } else {
-      console.group('calculateAllPrices');
+      console.group('>>> calculateSinglePrice');
       console.log('serviceProvision.id', serviceProvision.id);
       console.log('calculateSinglePrice', this.calculateSinglePrice(serviceProvision));
       console.groupEnd();
@@ -75,6 +84,13 @@ export class ServiceProvision implements OnInit {
   public updateServiceProvision({event, serviceProvision}) {
     event.stopPropagation();
     serviceProvision.selected = !serviceProvision.selected;
+
+    // update children
+    if (serviceProvision.serviceProvisions && serviceProvision.serviceProvisions.length) {
+      serviceProvision.serviceProvisions.forEach(spChild => {
+        spChild.selected = serviceProvision.selected;
+      });
+    }
     this.stateSvc.updateServiceProvision(this.catalogueId, serviceProvision);
   }
 }

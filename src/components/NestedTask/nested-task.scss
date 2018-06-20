@@ -1,13 +1,15 @@
 nested-task {
   .task {
     padding: map-get($gutters, 'xs') 0;
-    border-top: 1px solid map-get($customColors, 'CER_ORANGE_LIGHT');
+    border-bottom: 1px solid map-get($customColors, 'CER_ORANGE_LIGHT');
     display: flex;
     flex-flow: row;
     justify-content: space-between;
     align-items: center;
     .actions {
       margin-left: map-get($gutters, 'xs');
+      display: flex;
+      justify-content: flex-end;
     }
   }
 }

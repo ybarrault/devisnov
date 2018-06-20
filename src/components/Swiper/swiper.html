@@ -3,12 +3,10 @@
     #swiperContent
     class="swiper-content"
     [ngStyle]="style"
-
     (mousedown)="onMouseDown($event)"
     (mouseup)="onEnd($event)"
     (mousemove)="onMouseMove($event)"
     (mouseleave)="onCancel($event)"
-
     (touchstart)="onTouchStart($event)"
     (touchend)="onEnd($event)"
     (touchmove)="onTouchMove($event)"
