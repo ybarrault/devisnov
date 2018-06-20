@@ -40,3 +40,25 @@ ion-header {
     }
   }
 }
+
+//<!--.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner-->
+
+
+form {
+  ion-item {
+    ion-input {
+
+    }
+    ion-label {
+
+    }
+  }
+
+  .button-wrapper {
+    margin-top: map-get($gutters, 'xs');
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}

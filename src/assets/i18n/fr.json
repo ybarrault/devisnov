@@ -9,7 +9,9 @@
     "DELETE": "Supprimer",
     "ADD": "+",
     "RELATED_TASKS": "tache(s) associée(s)",
-    "NEXT": "Suivant"
+    "NEXT": "Suivant",
+    "COPYRIGHT": "Copyright © 2018 Tous droits réservés",
+    "CURRENCY": "€"
   },
   "PAGES": {
     "LOGIN": {
@@ -24,7 +26,7 @@
       "BUSINESS_ADHERENT": "Adhérent ?"
     },
     "CHOOSE_THEMATICS": {
-      "TITLE": "Choisissez vos thématiques"
+      "TITLE": "Choisissez vos thématiques - Je veux..."
     },
     "CHOOSE_SERVICE_PROVISIONS": {
       "TITLE": "Choisissez vos prestations",

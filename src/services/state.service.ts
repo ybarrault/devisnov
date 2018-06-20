@@ -1,4 +1,3 @@
-import {ICatalogue} from '../models/ICatalogue';
 import {Injectable} from '@angular/core';
 import {IServiceProvision} from '../models/IServiceProvision';
 

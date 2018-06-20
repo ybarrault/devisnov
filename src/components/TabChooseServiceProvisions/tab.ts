@@ -3,7 +3,6 @@ import {
   OnInit,
 } from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {IServiceProvision} from '../../models/IServiceProvision';
 import {EngagementLetterStateService} from '../../services/state.service';
 import {ICatalogueWithSPOnly} from '../../models/ICatalogue';
 
@@ -24,12 +23,10 @@ export class TabPage implements OnInit {
 
   public ngOnInit(){
     this.catalogue = this.navParams.data;
-
     console.log('>>> tab catalogue', this.catalogue);
   }
 
   public updateServiceProvision({event, serviceProvision}) {
-    event.preventDefault();
     event.stopPropagation();
     serviceProvision.selected = !serviceProvision.selected;
     this.stateSvc.updateServiceProvision(this.catalogue.id, serviceProvision);

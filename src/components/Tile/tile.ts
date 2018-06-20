@@ -7,7 +7,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 export class Tile {
   @Input() title: string;
   @Input() description?: string;
-  @Input() image: string;
+  @Input() color: string;
   @Input() isActive: boolean = false;
   @Input() id: string;
   @Output() select: EventEmitter<any> = new EventEmitter<any>();

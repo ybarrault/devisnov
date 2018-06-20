@@ -11,4 +11,7 @@ export class TaskManager implements OnInit {
     // console.info('>>> TaskManager init');
   }
 
+  public addTask(){
+    alert('adding Task');
+  }
 }

@@ -2,7 +2,7 @@
   <div class="tasks-header">
     <div>
       <strong>{{tasks.length}} {{'COMMON.RELATED_TASKS' | translate}} - </strong>
-      <button ion-button type="button" (click)="addTask()">{{'COMMON.ADD' | translate}}</button>
+      <button ion-button type="button" (click)="addTask()"><ion-icon name="add"></ion-icon></button>
     </div>
   </div>
   <div class="tasks-content" *ngIf="tasks && tasks.length">

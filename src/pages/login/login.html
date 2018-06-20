@@ -5,30 +5,21 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
   <ion-row>
     <ion-col>
       <form [formGroup]="loginForm" (submit)="onSubmit()">
-        <div class="form-field">
-          <label for="username">{{'PAGES.LOGIN.USERNAME' | translate}}</label>
-          <input
-            id="username"
-            type="text"
-            formControlName="username"
-            autocomplete="on"
-            [(ngModel)]="username">
+        <ion-item>
+          <ion-label color="secondary">{{'PAGES.LOGIN.USERNAME' | translate}}</ion-label>
+          <ion-input type="text" formControlName="username" [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="secondary">{{'PAGES.LOGIN.USERNAME' | translate}}</ion-label>
+          <ion-input type="password" formControlName="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <div class="button-wrapper">
+          <button ion-button type="submit">{{'PAGES.LOGIN.TITLE' | translate}}</button>
         </div>
-        <div class="form-field">
-          <label for="password">{{'PAGES.LOGIN.PASSWORD' | translate}}</label>
-          <input
-            id="password"
-            formControlName="password"
-            type="password"
-            autocomplete="on"
-            [(ngModel)]="password">
-        </div>
-        <button ion-button type="submit">{{'PAGES.LOGIN.TITLE' | translate}}</button>
       </form>
     </ion-col>
   </ion-row>
@@ -36,5 +27,5 @@
 
 
 <ion-footer>
-  <div>Uninov - Copyright@2018 all rights reserved</div>
+  <div><strong>Uninov</strong> - {{'COMMON.COPYRIGHT' | translate}}</div>
 </ion-footer>

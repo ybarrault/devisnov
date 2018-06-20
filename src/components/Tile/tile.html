@@ -1,6 +1,7 @@
 <div class="tile" (click)="onClick($event)" [ngClass]="isActive? 'active': ''">
-  <div class="image-wrapper" [ngStyle]="{backgroundImage: 'url(' + image + ')'}"></div>
+  <div class="image-wrapper" [ngStyle]="{backgroundColor:  color }"></div>
   <div class="title"><strong>{{title}}</strong></div>
+  <ion-icon name="checkmark-circle-outline"></ion-icon>
 </div>
 
 

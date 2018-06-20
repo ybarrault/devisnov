@@ -5,25 +5,27 @@
     <div header >
       <strong
         [ngClass]="spChild.selected ? 'sp-label selected' : 'sp-label'"
+        (click)="updateServiceProvision({event: $event, serviceProvision: spChild})"
       >
         <ion-icon *ngIf="spChild.selected" name="checkmark-circle-outline"></ion-icon>
         {{spChild.label}}
       </strong>
-      <strong *ngIf="spChild.price" class="price"> - {{spChild.price}}</strong>
+      <strong *ngIf="spChild.price" class="price"> - {{spChild.price}}{{'COMMON.CURRENCY' | translate}}</strong>
     </div>
     <div content>
       <task-manager [tasks]="spChild.tasks"></task-manager>
 
-      <accordion *ngIf="spChild.serviceProvisions && spChild.serviceProvisions.length" [uid]="catalogueId + '-' +serviceProvision.id+ '-' +spSecondChild.id">
+      <accordion *ngIf="spChild.serviceProvisions && spChild.serviceProvisions.length" [uid]="catalogueId + '-' +serviceProvision.id+ '-' +spChild.id">
         <accordion-item *ngFor="let spSecondChild of spChild.serviceProvisions">
           <div header >
             <strong
               [ngClass]="spSecondChild.selected ? 'sp-label selected' : 'sp-label'"
+              (click)="updateServiceProvision({event: $event, serviceProvision: spSecondChild})"
             >
               <ion-icon *ngIf="spSecondChild.selected" name="checkmark-circle-outline"></ion-icon>
               {{spSecondChild.label}}
             </strong>
-            <strong *ngIf="spSecondChild.price" class="price"> - {{spSecondChild.price}}</strong>
+            <strong *ngIf="spSecondChild.price" class="price"> - {{spSecondChild.price}}{{'COMMON.CURRENCY' | translate}}</strong>
           </div>
           <div content>
             <task-manager [tasks]="spSecondChild.tasks"></task-manager>

@@ -10,14 +10,14 @@
   <h2>{{'PAGES.HOME.HEADER' | translate}}</h2>
   <accordion uid="home" *ngIf="!!profile">
     <accordion-item>
-      <div header>{{'PAGES.HOME.BUSINESS_ADHERENT' | translate}}</div>
+      <div header><strong>{{'PAGES.HOME.BUSINESS_ADHERENT' | translate}}</strong></div>
       <div content>
         <business-adherent></business-adherent>
       </div>
 
     </accordion-item>
     <accordion-item>
-      <div header>{{'PAGES.HOME.SALES_LEAD' | translate}}</div>
+      <div header><strong>{{'PAGES.HOME.SALES_LEAD' | translate}}</strong></div>
       <div content>
         <sales-lead
           [client]="profile.client"
@@ -28,6 +28,6 @@
 </ion-content>
 
 <ion-footer>
-  <div>Uninov - Copyright@2018 all rights reserved</div>
+  <div><strong>Uninov</strong> - {{'COMMON.COPYRIGHT' | translate}}</div>
   <button ion-button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}</button>
 </ion-footer>

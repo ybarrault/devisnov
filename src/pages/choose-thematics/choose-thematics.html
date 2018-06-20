@@ -18,7 +18,7 @@
           [id]="thematic.id"
           [title]="thematic.label"
           [description]="thematic.description"
-          [image]="thematic.image"
+          [color]="thematic.color"
           (select)="onSelect({event: $event, catalogueId: catalogue.id})"
         ></tile>
       </swiper-slide>
@@ -27,7 +27,7 @@
 </ion-content>
 
 <ion-footer>
-  <div>Uninov - Copyright@2018 all rights reserved</div>
+  <div><strong>Uninov</strong> - {{'COMMON.COPYRIGHT' | translate}}</div>
   <button ion-button type="button" (click)="next()">{{'COMMON.NEXT' | translate}}</button>
 </ion-footer>
 

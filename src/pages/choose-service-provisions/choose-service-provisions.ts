@@ -52,9 +52,9 @@ export class ChooseServiceProvisionsPage implements OnInit {
             })
           }
         });
-        filteredServiceProvisions.sort((sp1: IServiceProvision, sp2: IServiceProvision) => {
-          return sp1.label.localeCompare(sp2.label);
-        });
+        // filteredServiceProvisions.sort((sp1: IServiceProvision, sp2: IServiceProvision) => {
+        //   return sp1.label.localeCompare(sp2.label);
+        // });
 
         res.serviceProvisions = filteredServiceProvisions;
         return res;

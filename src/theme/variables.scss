@@ -50,6 +50,8 @@ $colors: (
   dark:              map-get($customColors, 'CER_BLACK'),
 );
 
+$text-input-highlight-color-valid: map-get($customColors, 'CER_BLUE');
+
 
 
 

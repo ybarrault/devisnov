@@ -11,4 +11,11 @@ export class NestedTask implements OnInit {
     // console.info('>>> NestedTask init');
   }
 
+  public edit(){
+    alert('edit Task');
+  }
+
+  public delete(){
+    alert('delete Task');
+  }
 }

@@ -1,54 +1,59 @@
 <div class="sales-lead">
   <form (submit)="searchSalesLead()">
-    <div class="form-field">
-      <label for="sales-lead-search">{{'COMPONENTS.SALES_LEAD.SEARCH' | translate}}</label>
-      <input id="sales-lead-search" name="sales-lead-search" [(ngModel)]="search"/>
+
+    <ion-item>
+      <ion-label color="secondary">{{'COMPONENTS.SALES_LEAD.SEARCH' | translate}}</ion-label>
+      <ion-input type="text" name="sales-lead-search" [(ngModel)]="search"></ion-input>
+    </ion-item>
+    <div class="button-wrapper">
+      <button ion-button type="submit">{{'COMMON.SEARCH' | translate}}</button>
     </div>
-    <button ion-button type="submit">{{'COMMON.SEARCH' | translate}}</button>
   </form>
   <div class="client-information">
-    <button class="toggle-mode" [ngClass]="readOnly ? 'read-mode' : 'edit-mode'" type="button" (click)="toggleMode()">
+    <button ion-button class="toggle-mode" [ngClass]="readOnly ? 'read-mode' : 'edit-mode'" type="button" (click)="toggleMode()">
       <span *ngIf="readOnly; else editLabel">DISPLAY</span>
       <ng-template #editLabel>
         <span>EDIT</span>
       </ng-template>
     </button>
     <form  *ngIf="!readOnly; else readOnlyTemplate" (submit)="searchSalesLead()">
-      <div class="form-field">
-        <label for="corporate-name">{{'COMPONENTS.SALES_LEAD.CORPORATE_NAME' | translate}}</label>
-        <input id="corporate-name" name="corporate-name" [(ngModel)]="client.corporateName"/>
+      <ion-item>
+        <ion-label color="secondary">{{'COMPONENTS.SALES_LEAD.CORPORATE_NAME' | translate}}</ion-label>
+        <ion-input type="text" name="corporate-name" [(ngModel)]="client.corporateName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="secondary">{{'COMPONENTS.SALES_LEAD.ADDRESS' | translate}}</ion-label>
+        <ion-input type="text" name="address" [(ngModel)]="client.address"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COMPONENTS.SALES_LEAD.DOMAIN' | translate}}</ion-label>
+        <ion-select color="secondary" name="domain" [(ngModel)]="client.domain">
+          <ion-option *ngFor="let option of domainOptions" [value]="option.value">{{option.value | translate}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label color="secondary">{{'COMPONENTS.SALES_LEAD.JOB' | translate}}</ion-label>
+        <ion-input type="text" name="job" [(ngModel)]="client.job"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="secondary">{{'COMPONENTS.SALES_LEAD.CORE_BUSINESS' | translate}}</ion-label>
+        <ion-input type="text" name="core-business" [(ngModel)]="client.coreBusiness"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="secondary">{{'COMPONENTS.SALES_LEAD.SIDE_BUSINESS' | translate}}</ion-label>
+        <ion-input type="text" name="side-business" [(ngModel)]="client.sideBusiness"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="secondary">{{'COMPONENTS.SALES_LEAD.N_EMPLOYEE' | translate}}</ion-label>
+        <ion-input type="text" name="n-employee" [(ngModel)]="client.nEmployee"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="secondary">{{'COMPONENTS.SALES_LEAD.VOLUMES' | translate}}</ion-label>
+        <ion-input type="text" name="volumes" [(ngModel)]="client.volumes"></ion-input>
+      </ion-item>
+      <div class="button-wrapper">
+        <button ion-button type="submit" (click)="saveClient()">{{'COMMON.SAVE' | translate}}</button>
       </div>
-      <div class="form-field">
-        <label for="address">{{'COMPONENTS.SALES_LEAD.ADDRESS' | translate}}</label>
-        <input id="address" name="address" [(ngModel)]="client.address"/>
-      </div>
-      <div class="form-field">
-        <label for="domain">{{'COMPONENTS.SALES_LEAD.DOMAIN' | translate}}</label>
-        <select id="domain" name="domain" [(ngModel)]="client.domain">
-          <option *ngFor="let option of domainOptions" [value]="option.value">{{option.value | translate}}</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label for="job">{{'COMPONENTS.SALES_LEAD.JOB' | translate}}</label>
-        <input id="job" name="job" [(ngModel)]="client.job"/>
-      </div>
-      <div class="form-field">
-        <label for="core-business">{{'COMPONENTS.SALES_LEAD.CORE_BUSINESS' | translate}}</label>
-        <input id="core-business" name="core-business" [(ngModel)]="client.coreBusiness"/>
-      </div>
-      <div class="form-field">
-        <label for="side-business">{{'COMPONENTS.SALES_LEAD.SIDE_BUSINESS' | translate}}</label>
-        <input id="side-business" name="side-business" [(ngModel)]="client.sideBusiness"/>
-      </div>
-      <div class="form-field">
-        <label for="n-employee">{{'COMPONENTS.SALES_LEAD.N_EMPLOYEE' | translate}}</label>
-        <input id="n-employee" name="n-employee" [(ngModel)]="client.nEmployee"/>
-      </div>
-      <div class="form-field">
-        <label for="volumes">{{'COMPONENTS.SALES_LEAD.VOLUMES' | translate}}</label>
-        <input id="volumes" name="volumes" [(ngModel)]="client.volumes"/>
-      </div>
-      <button ion-button type="submit" (click)="saveClient()">{{'COMMON.SAVE' | translate}}</button>
     </form>
 
     <ng-template #readOnlyTemplate>

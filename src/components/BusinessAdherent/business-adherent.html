@@ -1,14 +1,19 @@
 <div class="business-adherent">
   <form  *ngIf="!readOnly; else readOnlyTemplate" (submit)="searchSalesLead()">
-    <div class="form-field">
-      <label for="search-by-number">{{'COMPONENTS.BUSINESS_ADHERENT.SEARCH_BY_NUMBER' | translate}}</label>
-      <input id="search-by-number" name="search-by-number" [(ngModel)]="searchNumber"/>
-    </div>
+
+    <ion-item>
+      <ion-label color="secondary">{{'COMPONENTS.BUSINESS_ADHERENT.SEARCH_BY_NUMBER' | translate}}</ion-label>
+      <ion-input type="text" [(ngModel)]="searchNumber" name="search-by-number"></ion-input>
+    </ion-item>
+    <br>
     <div class="separator"><strong>{{'COMMON.OR' | translate}}</strong></div>
-    <div class="form-field">
-      <label for="corporate-name">{{'COMPONENTS.BUSINESS_ADHERENT.CORPORATE_NAME' | translate}}</label>
-      <input id="corporate-name" name="corporate-name" [(ngModel)]="corporateName"/>
+    <br>
+    <ion-item>
+      <ion-label color="secondary">{{'COMPONENTS.BUSINESS_ADHERENT.CORPORATE_NAME' | translate}}</ion-label>
+      <ion-input type="text" name="corporate-name" [(ngModel)]="corporateName"></ion-input>
+    </ion-item>
+    <div class="button-wrapper">
+      <button ion-button type="submit" (click)="searchAdherent()">{{'COMMON.SAVE' | translate}}</button>
     </div>
-    <button ion-button type="submit" (click)="searchAdherent()">{{'COMMON.SAVE' | translate}}</button>
   </form>
 </div>

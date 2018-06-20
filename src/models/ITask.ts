@@ -1,6 +1,6 @@
 export interface ITask {
   label: string;
-  nbHours: number;
+  load: number;
   codeTAC: string;
   startDate: string;
   endDate: string;
